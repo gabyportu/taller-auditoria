@@ -1,0 +1,277 @@
+{
+  "roles-subs-and-areas": {
+    "data": {
+      "areasAndSubs": [
+        {
+          "subsidiaryId": 1,
+          "subsidiaryName": "sub1",
+          "status": false,
+          "areas": [
+            {
+              "areaId": 1,
+              "areaName": "mkt",
+              "areaSubsidiaryId": 1,
+              "status": false
+            },
+            {
+              "areaId": 2,
+              "areaName": "disneo",
+              "areaSubsidiaryId": 2,
+              "status": false
+            }
+          ]
+        },
+        {
+          "subsidiaryId": 2,
+          "subsidiaryName": "sub2",
+          "status": false,
+          "areas": [
+            {
+              "areaId": 1,
+              "areaName": "mkt",
+              "areaSubsidiaryId": 3,
+              "status": false
+            },
+            {
+              "areaId": 2,
+              "areaName": "disneo",
+              "areaSubsidiaryId": 4,
+              "status": false
+            }
+          ]
+        },
+        {
+          "subsidiaryId": 3,
+          "subsidiaryName": "sub3",
+          "status": false,
+          "areas": [
+            {
+              "areaId": 1,
+              "areaName": "mkt",
+              "areaSubsidiaryId": 5,
+              "status": false
+            },
+            {
+              "areaId": 2,
+              "areaName": "disneo",
+              "areaSubsidiaryId": 6,
+              "status": false
+            }
+          ]
+        }
+      ],
+      "roles": [
+        {
+          "roleId": 1,
+          "roleShortName": "CAN_ADD_VOUCHER",
+          "roleDescription": "Agregar comprobantes",
+          "status": false
+        },
+        {
+          "roleId": 2,
+          "roleShortName": "CAN_EDIT_VOUCHER",
+          "roleDescription": "Editar comprobantes",
+          "status": false
+        },
+        {
+          "roleId": 3,
+          "roleShortName": "CAN_GENERATE_REPORT",
+          "roleDescription": "Generar reportes",
+          "status": false
+        },
+        {
+          "roleId": 4,
+          "roleShortName": "CAN_ADD_EXCHANGE",
+          "roleDescription": "Agregar tasa de cambio",
+          "status": false
+        }
+      ]
+    },
+    "message": null,
+    "success": true,
+    "errors": null
+  },
+  "search-users-by-parameters": {
+    "data": [
+      {
+        "id": 1,
+        "fullName": "alan zarate",
+        "userName": "alan123",
+        "email": "alnzarate@gmail.com"
+      },
+      {
+        "id": 2,
+        "fullName": "Alan222 Zarate222",
+        "userName": "alan222",
+        "email": "alan222@gmail.comaaaaaaaaaaaaaaaaaa"
+      },
+      {
+        "id": 3,
+        "fullName": "alan333 zarate333",
+        "userName": "alan333",
+        "email": "alan333@gmail.com"
+      }
+    ],
+    "message": null,
+    "success": true,
+    "errors": null
+  },
+  "get-invitation-and-users": {
+    "data": {
+      "employee": [
+        {
+          "employeeId": 1,
+          "name": "alan zarate",
+          "email": "alnzarate@gmail.com",
+          "urlProfilePicture": ""
+        },
+        {
+          "employeeId": 2,
+          "name": "Alan222 Zarate222",
+          "email": "alan222@gmail.com",
+          "urlProfilePicture": ""
+        }
+      ],
+      "invitation": [
+        {
+          "invitationId": 2,
+          "invited": "alan333 zarate333",
+          "invitedId": 3,
+          "email": "alan333@gmail.com",
+          "urlProfilePicture": "https://bestprofilepictures.com/wp-content/uploads/2021/04/Cool-Picture-Wallpaper-473x1024.jpg"
+        }
+      ]
+    },
+    "message": null,
+    "success": true,
+    "errors": null
+  },
+  "get-specific-user-company": {
+    "data": {
+      "employeeId": 2,
+      "name": "alan333 zarate333",
+      "email": "alan333@gmail.com",
+      "urlProfilePicture": ""
+    },
+    "message": null,
+    "success": true,
+    "errors": null
+  },
+  "get-specific-roles-by-user-and-company": {
+    "areasAndSubs": [
+      {
+        "subsidiaryId": 1,
+        "subsidiaryName": "Sucursal 1",
+        "status": true,
+        "areas": [
+          {
+            "areaId": 1,
+            "areaName": "area 1",
+            "areaSubsidiaryId": 1,
+            "status": true
+          },
+          {
+            "areaId": 2,
+            "areaName": "area2",
+            "areaSubsidiaryId": 2,
+            "status": true
+          },
+          {
+            "areaId": 3,
+            "areaName": "area3",
+            "areaSubsidiaryId": 3,
+            "status": true
+          }
+        ]
+      },
+      {
+        "subsidiaryId": 2,
+        "subsidiaryName": "Sucursal 2",
+        "status": false,
+        "areas": [
+          {
+            "areaId": 1,
+            "areaName": "area 1",
+            "areaSubsidiaryId": 4,
+            "status": true
+          },
+          {
+            "areaId": 2,
+            "areaName": "area2",
+            "areaSubsidiaryId": 5,
+            "status": false
+          },
+          {
+            "areaId": 3,
+            "areaName": "area3",
+            "areaSubsidiaryId": 6,
+            "status": false
+          }
+        ]
+      },
+      {
+        "subsidiaryId": 3,
+        "subsidiaryName": "Sucursal 3",
+        "status": false,
+        "areas": [
+          {
+            "areaId": 1,
+            "areaName": "area 1",
+            "areaSubsidiaryId": 7,
+            "status": false
+          },
+          {
+            "areaId": 2,
+            "areaName": "area2",
+            "areaSubsidiaryId": 8,
+            "status": false
+          },
+          {
+            "areaId": 3,
+            "areaName": "area3",
+            "areaSubsidiaryId": 9,
+            "status": false
+          }
+        ]
+      }
+    ],
+    "roles": [
+      {
+        "roleId": 1,
+        "roleShortName": "CAN_ADD_VOUCHER",
+        "roleDescription": "Agregar comprobantes",
+        "status": true
+      },
+      {
+        "roleId": 2,
+        "roleShortName": "CAN_EDIT_VOUCHER",
+        "roleDescription": "Editar comprobantes",
+        "status": true
+      },
+      {
+        "roleId": 3,
+        "roleShortName": "CAN_GENERATE_REPORT",
+        "roleDescription": "Generar reportes",
+        "status": false
+      },
+      {
+        "roleId": 4,
+        "roleShortName": "CAN_ADD_EXCHANGE",
+        "roleDescription": "Agregar tasa de cambio",
+        "status": false
+      },
+      {
+        "roleId": 5,
+        "roleShortName": "CAN_TEST_1",
+        "roleDescription": "testing 1",
+        "status": false
+      },
+      {
+        "roleId": 6,
+        "roleShortName": "CAN_TEST_2",
+        "roleDescription": "testing 2",
+        "status": false
+      }
+    ]
+  }
+}

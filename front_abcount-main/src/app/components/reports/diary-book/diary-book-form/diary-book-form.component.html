@@ -1,0 +1,93 @@
+<div class="container-diary-book" *ngIf="flag">
+    <div class="diary-book">
+        <div class="header">
+            <div class="logo center">
+                <i class="fa-solid fa-calendar-days" style="color: #FFACAB"></i>
+            </div>
+            <div class="title"><h1>Libro Diario</h1></div>
+            <div class="close"><i class="fa-solid fa-xmark" (click)="closeModal()"></i></div>
+        </div>
+        <div class="row-2">
+            <div>
+                <h2>SUCURSAL</h2>
+                <div class="card">
+                    <div class="checkbox-label" *ngFor="let subsidiary of subsidiaries">
+                        <input type="checkbox" id="{{subsidiary.subsidiaryName}}{{subsidiary.subsidiaryId}}" class="custom-checkbox" value="{{subsidiary.subsidiaryId}}" [(ngModel)]="subsidiary.isChecked"/>
+                        <label for="{{subsidiary.subsidiaryName}}{{subsidiary.subsidiaryId}}" class="custom-label">&nbsp;{{subsidiary.subsidiaryName}}</label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h2>AREA</h2>
+                <div class="card">
+                    <div class="checkbox-label" *ngFor="let area of areas">
+                        <input type="checkbox" id="{{area.areaName}}{{area.areaId}}" class="custom-checkbox" value="{{area.areaId}}" [(ngModel)]="area.isChecked"/>
+                        <label for="{{area.areaName}}{{area.areaId}}" class="custom-label">&nbsp;{{area.areaName}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="period title">
+            <h2>PERIODO</h2>
+            <div class="title">
+                <h2>De:</h2>
+                <input type="date" [(ngModel)]="dateFrom"/>
+            </div>
+            <div class="title">
+                <h2>Al:</h2>
+                <input type="date" [(ngModel)]="dateTo"/>
+            </div>
+        </div>
+        <div class="period title">
+            <h2>TIPO DE COMPROBANTE</h2>
+            <select (change)="onTransactionTypeChange($event)">
+                <option value="2">Ingreso</option>
+                <option *ngFor="let transaction of transactionTypes" value="{{transaction.transactionTypeId}}">{{transaction.transactionTypeName}}</option>
+            </select>
+        </div>
+        <hr>
+        <div class="money">
+            <h2>MONEDAS PARA EL REPORTE</h2>
+            <div>
+                <div class="radio-button">
+                    <input type='radio' name="currency" id="principalCurrency" value="0" [(ngModel)]="currencySelected"/>
+                    <label for="principalCurrency">&nbsp;Bolivianos</label>
+                </div>
+                <div class="title select-money" *ngIf="currencies.length>0">
+                    <div class="radio-button">
+                        <input type='radio' name="currency" id="otherCurrency" value="1" [(ngModel)]="currencySelected"/>
+                        <label for="otherCurrency">&nbsp;Otros</label>
+                    </div>
+                    <select [(ngModel)]="otherCurrencySelected">
+                        <option *ngFor="let currency of currencies" value="{{currency.abbreviationName}}">{{currency.moneyName}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="error-message" #errorMessage>{{errorMessageText}}</div>
+        <div class="buttons">
+            <i class="fa-solid fa-file-pdf pdf" (click)="generatePdf()"></i>
+            <div style="width: 10px;"></div>
+            <i class="fa-solid fa-file-excel excel" (click)="generateExcel()"></i>
+        </div>
+    </div>
+
+  <div class="overlay" *ngIf="mostrarPopupConfirm">
+    <div class="popup confirm">
+      <div class="loading" *ngIf="loading; else content">
+        <h2>Generando PDF</h2>
+        <h3>El reporte se encuentra siendo generado, por favor espere</h3>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      <ng-template #content>
+        <i class="{{messageIcon}}"></i>
+        <h2>{{titleMessage}}</h2>
+        <h3>{{message}}</h3>
+        <app-my-button class="accept" [isGreen]="true" (click)="confirm()">ACEPTAR</app-my-button>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+
+

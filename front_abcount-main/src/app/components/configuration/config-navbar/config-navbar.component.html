@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<div class="margen">
+    <!-- Icono - título -->
+    <div class="icon">
+        <i class="fa-solid fa-gear"></i>
+        <h1>Configuración</h1>
+    </div>
+    <div class="title">
+        <p>¡Haz que todo funcione a tu manera! Administra tus configuraciones aquí.</p>
+    </div>
+    <!-- Opciones de configuraciones -->
+    <div class="config-navbar">
+        <a [ngClass]="{'active-subtitle first': numberOption === 1}" routerLink="/configuration-tap/1">Datos de la empresa</a>
+        <a [ngClass]="{'active-subtitle second': numberOption === 2}" routerLink="/configuration-tap/2">Sucursales y áreas</a>
+        <a [ngClass]="{'active-subtitle thrid': numberOption === 3}" routerLink="/configuration-tap/3">Generales</a>
+        <a [ngClass]="{'active-subtitle fourth': numberOption === 4}" routerLink="/configuration-tap/4">Plan de cuentas</a>
+        <a [ngClass]="{'active-subtitle fifth': numberOption === 5}" routerLink="/configuration-tap/5">Usuarios y permisos</a>
+    </div>
+    <hr>
+</div>

@@ -1,0 +1,43 @@
+<div class="container-add-user">
+    <div class="container-add">
+        <div class="header">
+            <div class="imagen">
+                <i class="fa-solid fa-briefcase" style="color: #F3B8B1;"></i>
+            </div>
+            <h1 class="header-title">Administración de permisos</h1>
+        </div>
+        <div class="data-user">
+            <img src="{{getImageProfile(user.urlProfilePicture)}}" alt="Foto de perfil">
+            <h3>{{user.name}}</h3>
+            <h4>{{user.email}}</h4>
+        </div>
+        <div class="wrapper">
+            <div class="card user">
+                <h2>Lista sucursales y areas</h2>
+                <br>
+                <div class="surcusal" *ngFor="let subsidiary of subsidiaries; let currentSub = index;">
+                    <input class="check-role" type="checkbox" [id]="'subsidiary_' + subsidiary.subsidiaryId" [(ngModel)]="subsidiary.status" (change)="onSubsidiaryChange(currentSub)">
+                    <label [for]="'subsidiary_' + subsidiary.subsidiaryId">{{subsidiary.subsidiaryName}}</label>
+                    <hr>
+                    <div class="area" *ngFor="let area of subsidiary.areas; let currentArea = index;">
+                        <input class="check-role" type="checkbox" [id]="'area_' + area.areaId" [(ngModel)]="area.status" (change)="onAreaChange(currentSub, currentArea)">
+                        <label [for]="'area_' + area.areaId">{{area.areaName}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card role">
+                <h2>Permisos</h2>
+                <br>
+                <div class="alinear" *ngFor="let rol of roles">
+                    <input class="check-role" type="checkbox" [id]="'checkbox' + rol.roleId" [(ngModel)]="rol.status">
+                    <label [for]="'checkbox' + rol.roleId">{{rol.roleDescription}}</label>
+ 
+                </div>
+            </div>
+        </div>
+        <div class="invitar">
+            <app-my-button  [isGreen]="true"  (click)="update()" style="margin-right: 10px;">GUARDAR CAMBIOS</app-my-button>
+            <app-my-button [isRed]="true" (click)="cancel()">CANCELAR</app-my-button>
+        </div>
+    </div>
+</div>

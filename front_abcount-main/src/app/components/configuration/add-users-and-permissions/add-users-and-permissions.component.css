@@ -1,0 +1,203 @@
+/*Body*/
+.container-add-user {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.322); 
+  backdrop-filter: blur(5px);
+}
+
+/*Contenedor*/
+.container-add {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  width: 45%;
+}
+/*Título*/
+.header{
+  display: flex;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 70px calc(100% - 70px);
+  margin-bottom: 10px;
+}
+.imagen {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: #ebebfc;
+  font-size: 24px;
+}
+i {
+  padding-left: 3px;
+}
+.header-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+/*Buscar-usuario*/
+.buscar-usuario{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/*Subtitulos*/
+h2 {
+  font-size: 16px;
+  color: #757575;
+  height: 14px;
+  font-weight: 500;
+}
+/*Input*/
+input {
+  font-size: 16px;
+  border: #D9D9D9 1px solid;
+  border-radius: 4px;
+  outline: none;
+  width: 50%;
+  padding: 3px 8px;
+  caret-color: #66CDAA;
+  transition: border 0.5s; /* Agregar transición a la propiedad border */
+}  
+input:focus {
+  border: 1px solid #66CDAA;
+}  
+input::placeholder {
+  transition: opacity 0.25s;
+}  
+/*Sugerencias de usuario*/
+.buscar-usuario {
+  position: relative;
+}
+
+.resultado-lista {
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  right: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  max-height: 200px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto;
+  width: 50%;
+}
+
+.resultado-lista li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.resultado-lista li:hover {
+  background-color: #f0f0f0;
+}
+/*Estilo dos columnas principales*/
+.wrapper {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  gap: 4%;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  height: 357px;
+}
+/*Lado izquierdo*/
+.card {
+  border: #EDEDED 1px solid;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 10px 0px;
+  padding: 10px 15px;
+  overflow-y: auto;
+}
+/* Style the scrollbar track */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar track */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+}
+/* Style the scrollbar track when the mouse is over it */
+::-webkit-scrollbar-track:hover {
+  background-color: #ddd;
+}
+
+/* Style the scrollbar thumb when the mouse is over it */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+/*Lado izquierdo*/
+.user {
+  background: url(/assets/buildings.svg);
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 95%;
+}
+.sucursal {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.area {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-left: 7%;
+}
+hr{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/*Lado derecho*/
+.role{
+  background: url(/assets/roles.svg);
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 95%;
+}
+.alinear {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.check-role {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+}
+label {
+  font-size: 16px;
+  color: #757575;
+  margin: 0;
+}
+/*Div de los botones*/
+.invitar{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 5px;
+}
+
+
+/* Custom search result box */
+.custom-search-result{
+  position: absolute;
+  width: 400px; 
+  z-index: 500;
+}

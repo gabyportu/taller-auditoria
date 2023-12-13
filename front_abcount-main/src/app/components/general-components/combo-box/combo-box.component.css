@@ -1,0 +1,52 @@
+/*Combo box*/
+.combo-box-input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #EDEDED;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+h2 {
+    font-size: 16px;
+    color: #757575;
+    font-weight: 400;
+}
+.combo-box-input i {
+    font-size: 16px;
+    color: #757575;
+    margin-top: 2px;
+}
+.combo-box-options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 5px 0;
+    border: 1px solid #E8E8E8;
+    z-index: 1;
+    margin-top: 3px;
+}
+.combo-box-option {
+    color: #757575;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.combo-box-option:hover {
+    color: black;
+    background-color: #f8f8f8;
+}
+.combo-box-option:active {
+    background-color: #DCF8EF;
+    color: #66cdab;
+}

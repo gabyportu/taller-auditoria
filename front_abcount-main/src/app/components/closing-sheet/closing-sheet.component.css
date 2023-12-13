@@ -1,0 +1,151 @@
+/*Quitar los estilos generales*/
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*Body*/
+.closing-sheet {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Background*/
+.closing-sheet-background {
+    background-color: #F8F8F8;
+    padding: 2.5% 8% 2% 8%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+}
+/*Titulo principal*/
+.logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.logo i {
+    font-size: 30px;
+    background-image: linear-gradient(to right, #66cdab, #489ce9);
+    background-clip: text;
+    -webkit-background-clip: text; /* Para navegadores webkit (Safari, Chrome) */
+    color: transparent;
+}
+.logo h1 {
+    font-size: 30px;
+    color: #787878;
+    margin-bottom: 0px;
+    font-weight: 600;
+    padding-left: 15px;
+}
+/*Mensaje*/
+p {
+    font-size: 15px;
+    color: #787878;
+    margin: 0px 0px 20px 0px;
+}
+.button-start {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*Popup*/
+/* Estilos para la capa de fondo desenfocada */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.322);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Estilos para el popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    background-color: #fff;
+    padding: 25px 35px;
+    z-index: 101;
+    box-shadow: 0 5 15px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.popup-title {
+    display: flex;
+    gap: 10px;
+}
+.popup-title i {
+    font-size: 25px;
+    color: #6ACAD8;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color:#757575;
+    margin: 0 0 10px 0;
+}
+h4 {
+    font-size: 16px;
+    color: #757575;
+    margin: 0 0 15px 0;
+    font-weight: 400;
+}
+
+/*Botones*/
+.popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.accept-button {
+    background-color: #66cdab;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.accept-button:hover {
+    background-color: #5ac29d;
+}
+.cancel-button {
+    background-color: #e9e9e9;
+    color: #787878;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.cancel-button:hover {
+    background-color: #dcdcdc;
+}
+
+.gradient-green {
+    background-image: linear-gradient(to right, #66cdab, #489ce9);
+    background-clip: text;
+    -webkit-background-clip: text; /* Para navegadores webkit (Safari, Chrome) */
+    color: transparent !important;
+}
+.gradient-red {
+    background-image: linear-gradient(to right, #ff6b6b, #ffa39e);
+    background-clip: text;
+    -webkit-background-clip: text; /* Para navegadores webkit (Safari, Chrome) */
+    color: transparent !important;
+}

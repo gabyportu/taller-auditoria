@@ -1,0 +1,74 @@
+<div class="wrapper" *ngIf="flag">
+  <div class="container">
+    <div class="title">
+      <h2>Entidades</h2>
+      <i class="fa-solid fa-xmark" (click)="closeModal()"></i>
+    </div>
+    <hr style="margin-top: 0;">
+    <h4>Formulario</h4>
+    <div class="inputs-container">
+      <app-my-textfield type="text" iconInput="fa-solid fa-signature" [label]="'Nombre'" [control]="controlEntityName" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="'Ingrese el nombre de la entidad'"></app-my-textfield>
+      <app-my-textfield type="text" iconInput="fa-regular fa-credit-card" [label]="'Nit'" [control]="controlEntityNit" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="'Ingrese el nit de la entidad'"></app-my-textfield>
+    </div>
+    <div class="space">
+      <app-my-textfield type="text" iconInput="fa-regular fa-building" [label]="'Razon Social'" [control]="controlEntitySocialReason" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="'Ingrese la razon social de la entidad'"></app-my-textfield>
+    </div>
+    <!-- Checkbox de Extranjera -->
+    <div class="checkbox-container">
+      <input type="checkbox" [formControl]="controlEntityForeign">
+      <h4>Externa</h4>
+    </div>
+    <div class="buttons-container">
+      <app-my-button [isGreen]="true" (click)="addOrUpdateEntity()">
+        {{ selectedEntity ? 'EDITAR' : 'AGREGAR' }}
+      </app-my-button>
+      <app-my-button [isRed]="true" *ngIf="selectedEntity" (click)="cancelEdit()">CANCELAR</app-my-button>
+    </div>
+    <hr>
+    <h4>Lista de entidades</h4>
+    <div class="table-container">
+      <mat-table [dataSource]="entity">
+        <ng-container matColumnDef="nro">
+          <mat-header-cell *matHeaderCellDef>Nro</mat-header-cell>
+          <mat-cell *matCellDef="let entity"> {{entity.entityId}} </mat-cell>
+        </ng-container>
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+          <mat-cell *matCellDef="let entity"> {{entity.entityName}} </mat-cell>
+        </ng-container>
+
+        <!-- Nit Column -->
+        <ng-container matColumnDef="nit">
+          <mat-header-cell *matHeaderCellDef>Nit</mat-header-cell>
+          <mat-cell *matCellDef="let entity"> {{entity.entityNit}} </mat-cell>
+        </ng-container>
+        <!-- Social reason Column -->
+        <ng-container matColumnDef="razonSocial">
+          <mat-header-cell *matHeaderCellDef>Razon social</mat-header-cell>
+          <mat-cell *matCellDef="let entity"> {{entity.entitySocialReason}} </mat-cell>
+        </ng-container>
+        <!-- Foreign Column -->
+        <ng-container matColumnDef="extranjera">
+          <mat-header-cell *matHeaderCellDef>Extranjera</mat-header-cell>
+          <mat-cell *matCellDef="let entity"> {{ entity.foreign ? 'Sí' : 'No' }} </mat-cell>
+        </ng-container>
+        <!-- Actions Column -->
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef>Opciones</mat-header-cell>
+          <mat-cell class="cell-center" *matCellDef="let entity">
+            <button class="edit" (click)="loadEntityForEdit(entity)" mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="delete" mat-icon-button (click)="deleteEntity(entity)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>

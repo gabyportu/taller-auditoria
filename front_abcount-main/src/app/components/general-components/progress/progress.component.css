@@ -1,0 +1,50 @@
+.progress-container {
+  display: block;
+  width: 100%;
+  margin: 18px 0px 5px 0px;
+}
+/*Centrear verticalmente y horizontalmente*/
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Cuatro columnas*/
+.four-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+/*Linea*/
+.line {
+  height: 4px;
+  width: calc(100% - 30px);
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+/*Circulo*/
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+/*Subtitulos*/
+.subtitle {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 5px;
+  color: #757575;
+}
+/*Estilos de los circulos activos*/
+.active-sub {
+  color: black;
+}
+.active {
+  background-color: #66CDAA;
+  color: white;
+} 
+.filled {
+  background-color: #66CDAA;
+}

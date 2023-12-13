@@ -1,0 +1,164 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<div class="accounting-voucher-add">
+  <app-navbar></app-navbar>
+  <div class="container">
+    <div class="title">
+      <a href="accounting-voucher/view">
+        <i class="fa-solid fa-circle-plus" style="cursor: pointer;"></i>
+      </a>
+      <h2>Registrar Nuevo Comprobante Contable</h2>
+    </div>
+    <hr>
+    <div class="header">
+      <div class="add-button">
+        <label for="file-upload" class="custom-file-upload">
+          Importar Transacciones
+          <i class="fa-solid fa-upload"></i>
+        </label>
+        <input  id="file-upload" type="file" accept=".xlsx, .xls" (change)="importFromExcel($event)"  />
+        <button class="add center" (click)="generateExcelTemplate()">Descargar Plantilla
+          <i class="fa-solid fa-download"></i>
+        </button>
+      </div>
+      <div class="column-3">
+        <div class="option">
+          <h3>Empresa</h3>
+          <h3 style="color: #757575;">{{companyName}}</h3>
+        </div>
+      </div>
+      <div class="column-3">
+        <div class="option">
+          <h3>Sucursal</h3>
+          <app-combo-box [selectedOption]="sucursales[0]" [options]="sucursales" (optionSelected)="subsidiarySelected($event)"></app-combo-box>
+        </div>
+        <div class="option">
+          <h3>Área</h3>
+          <app-combo-box [selectedOption]="areas[0]" [options]="areas" (optionSelected)="areaSelected($event)"></app-combo-box>
+        </div>
+        <div class="option">
+          <h3>Documento</h3>
+          <app-combo-box [selectedOption]="documentos[0]" [options]="documentos" (optionSelected)="documentSelected($event)"></app-combo-box>
+        </div>
+      </div>
+      <div class="column-3">
+        <div class="option">
+          <h3>Fecha</h3>
+          <input type="date" [(ngModel)]="fecha" [min]="fechaCierre" max="{{ getCurrentDate() | date:'yyyy-MM-dd' }}" (blur)="validarRegistroTipoCambio()">
+        </div>
+        <div class="option">
+          <h3>Nro de comprobante</h3>
+          <input type="text" style="text-align: right;" [(ngModel)]="numComprobante" disabled="true">
+        </div>
+        <div class="option">
+          <h3>Moneda</h3>
+          <app-combo-box [selectedOption]="monedas[0]" [options]="monedas" (optionSelected)="currencySelected($event)"></app-combo-box>
+        </div>
+      </div>
+      <div class="checkbox-area">
+        <input type="checkbox" id="ajuste" class="custom-checkbox" [(ngModel)]="ajusteChecked"/>
+        <label for="ajuste" class="custom-label">&nbsp;Cbte de Ajuste</label>         
+      </div>
+    </div>
+    <hr>
+    <div class="body">
+      <div class="glosa">
+        <h3 style="padding-top: 5px;">GLOSA</h3>
+        <textarea [(ngModel)]="glosa" maxlength="240"></textarea>
+        <div></div>
+        <div #errorGlosa class="glosa-message">
+          <h3 class="red-text">Por favor, llenar la glosa general</h3>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Código de Cuenta</th>
+            <th>Nombre de la Cuenta</th>
+            <th>Auxiliar</th>
+            <th>Entidad</th>
+            <th>Debe</th>
+            <th>Haber</th>
+            <th>Glosa</th>
+            <th>Nro documento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entrada of listaEntradas; let i = index">
+            <td>
+              <div style="position: relative;">
+                <input autocomplete="off" name="numeroCuenta" [(ngModel)]="entrada.numeroCuenta" (input)="filterAccountsFunction(i)" [ngClass]="{'red-text': isFilteredAccountsEmpty(i) || entrada.falta}" (blur)="delayedHideDropdownAccount(i)" (keydown)="navegarInputs($event, i, 'numeroCuenta')">
+                <div class="number-account-list" *ngIf="filteredAccounts[i].length > 0">
+                  <div class="number-account-list-option" *ngFor="let account of filteredAccounts[i]" (click)="selectedAccount(account, i)">
+                    {{ account.accountCode }} - {{ account.nameAccount }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td><input autocomplete="off" name="nombreCuenta" [(ngModel)]="entrada.nombreCuenta" (keydown)="navegarInputs($event, i, 'nombreCuenta')" [ngClass]="{'red-text': entrada.falta}"></td>
+            <td>
+              <div style="position: relative;">
+                <input autocomplete="off" name="auxiliar" [(ngModel)]="entrada.auxiliar" (input)="filterAuxiliarFunction(i)" [ngClass]="{'red-text': isFilteredAuxiliarEmpty(i) || entrada.falta}" (blur)="delayedHideDropdownAuxiliar(i)" (keydown)="navegarInputs($event, i, 'auxiliar')">
+                <div class="number-account-list" *ngIf="filteredAuxiliares[i].length > 0">
+                  <div class="number-account-list-option" *ngFor="let auxiliar of filteredAuxiliares[i]" (click)="selectedAuxiliar(auxiliar, i)">
+                    {{ auxiliar.codeAccount }} - {{ auxiliar.nameDescription }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div style="position: relative;">
+                <input autocomplete="off" name="entidad" [(ngModel)]="entrada.entidad" (input)="filterEntityFunction(i)" [ngClass]="{'red-text': isFilteredEntitiesEmpty(i) || entrada.falta}" (blur)="delayedHideDropdownEntity(i)" (keydown)="navegarInputs($event, i, 'entidad')">
+                <div class="number-account-list" *ngIf="filteredEntities[i].length > 0">
+                  <div class="number-account-list-option" *ngFor="let entity of filteredEntities[i]" (click)="selectedEntity(entity, i)">
+                    {{ entity.entityId }} - {{ entity.entityName }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <input autocomplete="off" name="debe" [(ngModel)]="entrada.debe" (input)="validarInput($event, true, entrada)" (keydown)="navegarInputs($event, i, 'debe')" [ngClass]="{'red-text': entrada.falta}">
+            </td>
+            <td>
+              <input autocomplete="off" name="haber" [(ngModel)]="entrada.haber" (input)="validarInput($event, false, entrada)" (keydown)="navegarInputs($event, i, 'haber')" [ngClass]="{'red-text': entrada.falta}">
+            </td>
+            <td style="width: 30%;">
+              <input style="text-align: left;" autocomplete="off" name="glosa" [(ngModel)]="entrada.glosa" (keydown)="navegarInputs($event, i, 'glosa')" maxlength="450" [ngClass]="{'red-text': entrada.falta}" (input)="verifyAllEntries()">
+            </td>
+            <td>
+              <input autocomplete="off" name="nroDoc" [(ngModel)]="entrada.nroDoc" (keydown)="navegarInputs($event, i, 'nroDoc')" maxlength="18" [ngClass]="{'red-text': entrada.falta}">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: right;"><h3>SUMAS TOTALES&nbsp;&nbsp;&nbsp;</h3></td>
+            <td><input class="result" type="text" [(ngModel)]="totalDebe" readonly></td>
+            <td><input class="result" type="text" [(ngModel)]="totalHaber" readonly></td>
+            <td>
+              <h3 style="margin-left: 10px; text-align: left;" [ngClass]="{'green-text': diferencia === 0, 'red-text': diferencia !== 0}">
+                Diferencia: {{ diferencia }}
+              </h3>
+            </td>
+            <td colspan="2"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="footer-buttons">
+        <button [disabled]="diferencia!==0" class="save" (click)="save()"><i class="fa fa-save"></i>Guardar</button>
+        <button class="cancel" routerLink="/accounting-voucher/view"><i class="fa fa-cancel"></i>Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal de mensaje-->
+<div class="overlay" *ngIf="showPopup"></div>
+<div *ngIf="showPopup" class="popup">
+  <div style="width: 100%;" *ngIf="loading; else content">
+    <div class="loading-text">Cargando...</div>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+  <ng-template #content>
+    <i class="{{popupIcon}}"></i>
+    <h2>{{popupTitle}}</h2>
+    <h3>{{popupMessage}}</h3>
+  </ng-template>
+</div>
+<app-currency-exchange-add [flag]="flagAdd" [date]="fecha" (flagChange)="flagAddChange()"></app-currency-exchange-add>

@@ -1,0 +1,180 @@
+/*Quitar los estilos generales*/
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Background*/
+.reports {
+    background-color: #F8F8F8;
+    padding: 2% 5% 2% 5%;
+}
+hr{
+    border: none;
+    border-top: 1px solid #E5E5E5;
+}
+.container-1{
+    margin: 4% 4% 0 4%;
+    display: grid;
+    grid-template-columns: 48% 48%;
+    grid-column-gap: 4%;
+}
+.space-bottom {
+    margin-bottom: 6%;
+}
+/*Reportes*/
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 42px 35px 40px;
+    cursor: pointer;
+}
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    position: relative;
+}
+.logo {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.logo i {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 50%;
+}
+.form-logo {
+    color: #000000;
+}
+.logo-white {
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 64px;
+    left: 64px;
+    color:#66cdab;
+    font-size: 18px;
+    padding-top: 4px;
+}
+
+
+/*Libro diario*/
+.libro-diario {
+    background-color: #FAECEB;
+}
+.libro-diario .header-card .logo {
+    background-color: #FFACAB;
+}
+/*Libro mayor*/
+.libro-mayor {
+    background-color: #FCF4E9;
+}
+.libro-mayor .header-card .logo {
+    background-color: #FFD5A5;
+}
+/*Balance general*/
+.balance-general{
+    background-color: #EBE8F9;
+}
+.balance-general .header-card .logo {
+    background-color: #BDB2FE;
+}
+/*Estado de resultados*/
+.estado-resultado {
+    background-color: #EFFAFC;
+}
+.estado-resultado .header-card .logo {
+    background-color: #99F7FF;
+}
+/*Sumas y saldos*/
+.sumas-saldos {
+    background-color: #e3fdee;
+}
+.sumas-saldos .header-card .logo {
+    background-color: #82f0b0;
+}
+
+/*Texto*/
+h1 {
+    font-size: 35px;
+    color: black;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h2 {
+    font-size: 25px;
+    font-weight: 550;
+    color: black;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h4 {
+    font-size: 15px;
+    font-weight: 300;
+    color: #a09a9a;
+    margin-bottom: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+    line-height: 16px;
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+  width: 45%; /* Tamaño del popup */
+  background-color: #fff;
+  padding: 25px 35px;
+  z-index: 101; /* Coloca el popup por encima de la capa de fondo */
+  box-shadow: 0 5 15px rgba(0, 0, 0, 0.25); /* Sombra */
+  border-radius: 10px;
+}
+
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  z-index: 100; /* Coloca la capa por encima de todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+

@@ -1,0 +1,35 @@
+<div class="wrapper" *ngIf="flag">
+    <div class="container">
+      <div class="title">
+        <h2>Editar Tipo de Cambio</h2>
+        <i class="fa-solid fa-xmark" (click)="close()"></i>
+      </div>
+      <hr>
+      <div>
+        <h3>{{ date }}</h3>
+        <h3>MONEDA PRINCIPAL: {{principalCurrency.moneyName}}</h3>
+        <form [formGroup]="form">
+            <div class="row-2">
+                <ng-container *ngFor="let currency of currencies">
+                    <app-my-textfield style="margin-bottom: 10px;" *ngIf="currency.abbreviationName != 'BOL'"
+                        type="text"
+                        iconInput="fa-light fa-money-bill"
+                        [label]="currency.abbreviationName"
+                        [control]="getCurrencyControl(currency.abbreviationName)"
+                        [pattern]="patternNumber"
+                        [errorMessage]="patternNumberMessage"
+                        [placeholder]="'Ingrese el valor para ' + currency.abbreviationName">
+                    </app-my-textfield>
+                </ng-container>
+            </div>
+        </form>
+        <div style="margin: 0 5%;" *ngIf="errorMessage!=''">
+            <p class="error">{{errorMessage}}</p>
+        </div>
+        <div class="buttons-container">
+            <app-my-button [isGreen]="true" (click)="saveOrUpdate()">EDITAR</app-my-button>
+            <app-my-button [isRed]="true" (click)="close()">CANCELAR</app-my-button>
+        </div>
+      </div>
+    </div>
+</div>

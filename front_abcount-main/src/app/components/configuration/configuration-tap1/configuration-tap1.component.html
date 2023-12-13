@@ -1,0 +1,82 @@
+<div class="container-tap1">
+    <app-navbar></app-navbar>
+    <app-config-navbar [numberOption]="1"></app-config-navbar>
+    <div class="configuration-tap1">
+        <div class="row-2">
+            <div class="titulo">
+                <div>
+                    <i class="fa-solid fa-city icono"></i>
+                    <h2>EMPRESA</h2>
+                </div>
+            </div>
+            <div class="empresa">
+                <div class="identificacion-datos">
+                    <div class="identificacion-campos">
+                        <app-my-textfield type="text" iconInput="fa-regular fa-building" label="Razón social" [control]="companyName" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese la razón social de tu empresa"></app-my-textfield>
+                        <div style="height: 15px;"></div>
+                        <app-my-textfield type="text" iconInput="fa-regular fa-store" label="Rubro" [control]="rubro" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese el rubro al que se dedica"></app-my-textfield>
+                        <div style="height: 15px;"></div>
+                        <app-my-textfield type="text" iconInput="fa-regular fa-id-card" label="NIT" [control]="nit" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese el NIT de la empresa"></app-my-textfield>
+                        <div style="height: 15px;"></div>
+                    </div>
+                    <div class="identificacion-imagen">
+                        <h4 style="margin-top: 4px;">LOGO</h4>
+                        <div class="logo">
+                            <button *ngIf="modeEdit" (click)="imgLogo.click()">
+                                <i class="fa-solid fa-camera"></i>
+                            </button>
+                            <input type="file" accept="image/*" #imgLogo style="display:none" (change)="onFileSelectedLogo($event)">
+                            <div *ngIf="!modeEdit"></div>
+                            <img src="{{logoUuid}}" alt="Descripción de la imagen">
+                        </div>
+                    </div>
+                </div>
+                <div class="identificacion-datos">
+                    <app-my-textfield type="text" iconInput="fa-regular fa-user" label="Representante legal" [control]="legalRepresentative" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese el nombre del representante legal"></app-my-textfield>
+                    <app-my-textfield type="text" iconInput="fa-regular fa-address-card" label="C.I. del representante legal" [control]="ciRepresentative" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese la C.I. del representante legal"></app-my-textfield>
+                </div>
+            </div>
+        </div>
+        <div style="height: 15px;"></div>
+        <div class="row-2">
+            <div class="titulo">
+                <i class="fa-solid fa-phone icono" style="font-size: 30px;"></i>
+                <h2>CONTACTO</h2>
+            </div>
+            <div class="campos">
+                <app-my-textfield type="text" iconInput="fa-regular fa-map-marker-alt" label="Dirección" [control]="address" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese la dirección de la empresa"></app-my-textfield>
+                <div style="height: 15px;"></div>
+                <div class="identificacion-datos">
+                    <app-my-textfield type="email" iconInput="fa-regular fa-envelope" label="E-mail de contacto" [control]="emailRepresentative" placeholder="Ingrese un e-mail de contacto" [pattern]='patternEmail' errorMessage="Por favor, ingrese una dirección de correo electrónico válida."></app-my-textfield>
+                    <app-my-textfield type="text" iconInput="fa-regular fa-phone" label="Número de contacto" [control]="numberRepresentative"  placeholder="Ingrese un número de contacto"  [pattern]="patternNumber" errorMessage="Por favor, ingrese un número de contacto válido."></app-my-textfield>
+                </div>
+            </div>
+        </div>
+        <div style="height: 15px;"></div>
+        <div class="row-2">
+            <div class="titulo">
+                <div>
+                    <i class="fa-solid fa-file icono" style="font-size: 30px;"></i>
+                    <h2>DOCUMENTACIÓN Y REGISTROS</h2> 
+                </div>
+            </div>
+            <div class="campos">
+                <div>
+                    <app-my-textfield type="text" iconInput="fa-regular fa-credit-card" label="Número de registro de comercio" [control]="numberRegistration" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese el número de registro de comercio"></app-my-textfield>
+                </div>
+                <div style="height: 15px;"></div>
+                <div>
+                    <app-my-textfield type="text" iconInput="fa-regular fa-user" label="Número de registro de empleador" [control]="numberEmployee" [pattern]="patternAll" errorMessage="ngrese un valor válido" placeholder="Ingrese el número de registro de empleador"></app-my-textfield>
+                </div>
+            </div>
+        </div>
+        <div class="error-message" #errorMessage>Por favor, complete todos los campos de forma correctamente.</div>
+        <div class="right">
+            <button *ngIf="!modeEdit" class="edit-button" (click)="enable()">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+            <app-my-button *ngIf="modeEdit" [isGreen]="true" (click)="save()" style="margin-right: 10px;">GUARDAR CAMBIOS</app-my-button>
+            <app-my-button *ngIf="modeEdit" [isRed]="true" (click)="cancel()">CANCELAR</app-my-button>
+        </div>
+    </div>
+</div>

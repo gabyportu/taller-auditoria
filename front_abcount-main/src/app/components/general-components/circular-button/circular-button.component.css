@@ -1,0 +1,8 @@
+i {
+  color: #f59898;
+  cursor: pointer;
+  font-size: 25px;
+}
+i:hover {
+  color: #ef5350;
+}

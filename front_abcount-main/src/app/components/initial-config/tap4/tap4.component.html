@@ -1,0 +1,76 @@
+<div class="tap4">
+  <div class="container">
+    <h1 class="header-title">Configuración de la empresa</h1>
+    <hr>
+    <app-progress [steps]="[1, 2, 3, 4]" [currentStep]="4"></app-progress>
+    <hr class="linea">
+    <h2>PLAN DE CUENTAS</h2>
+    <div class="data">
+      <app-my-button-squared (clicked)="showAddPopupParentChange()"></app-my-button-squared>
+      <hr style="margin: 4px 0 6px 0;">
+      <app-account-tree [accounts]="accountPlan"></app-account-tree>
+    </div>
+    <div class="navigation">
+      <div>
+        <a (click)="back()">&lt;&lt; Atras</a>
+      </div>
+      <div>
+        <button class="button" (click)="guardarJSON()">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar un nuevo padre -->
+<div class="overlay" *ngIf="showAddPopupParent">
+  <div class="popup">
+    <div class="popup-title">
+      <span class="icon">
+        <i class="fa-regular fa-pen-to-square"></i>
+      </span>
+      <h2 class="h2-title">Registro de Cuenta</h2>
+    </div>
+    <div class="row-2-popup">
+      <h3>Dígitos del nivel</h3>
+      <h4>1</h4>
+    </div>
+    <div class="row-2-popup">
+      <h3>Nombre de la cuenta </h3>
+      <input [(ngModel)]="accountName" type="text" placeholder="Ingresa el nombre de la cuenta">
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" id="check" name="check" value="check" [(ngModel)]="accountMoneyRub">
+      <label for="check">Rubro monetario</label>
+    </div>
+    <div class="alinear">
+      <h3>Reporte</h3>
+      <label class="label-report alinear" for="balanceGeneral">
+        <input type="radio" name="report" id="balanceGeneral" [(ngModel)]="accountReport" [value]="true"> Balance General
+      </label>
+      <label class="label-report alinear" for="estadoResultados">
+        <input type="radio" name="report" id="estadoResultados" [(ngModel)]="accountReport" [value]="false"> Estado de Resultados
+      </label>
+    </div>
+    <div class="popup-buttons">
+      <app-my-button [isGreen]="true" (click)="addParent()">ACEPTAR</app-my-button>
+      <app-my-button [isRed]="true" (click)="cancel()">CANCELAR</app-my-button>
+    </div>
+  </div>
+</div>
+
+<!--Modal de confirmación de creación de empresa-->
+<div class="overlay" *ngIf="mostrarPopupConfirm">
+  <div class="popup confirm">
+    <div class="loading" *ngIf="loading; else content">
+        <h2>Guardando tus datos</h2>
+        <h3>Estamos haciendo todo lo posible para asegurarnos de que tus datos se guarden de manera segura. ¡Gracias por tu paciencia!</h3>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <ng-template #content>
+      <i class="{{messageIcon}}"></i>
+      <h2>{{titleMessage}}</h2>
+      <h3>{{message}}</h3>
+      <app-my-button class="accept" [isGreen]="true" (click)="confirm()">ACEPTAR</app-my-button>
+    </ng-template>
+  </div>
+</div>

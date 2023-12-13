@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<app-navbar></app-navbar>
+<div class="reports">
+    <!-- Cabezera de la página -->
+    <div class="header">
+        <h1>Reportes</h1>
+        <hr>
+    </div>
+    <!-- Contenedor de los reportes (Imagen-descripción) -->
+    <div class="container-1">
+        <div class="space-bottom">
+            <div class="card balance-general" (click)="balanceSheetFlagChange()">
+                <div class="header-card">
+                    <div class="logo center">
+                        <i class="fa-light fa-balance-scale center"></i>
+                    </div>
+                    <i class="fa-solid fa-ellipsis form-logo"></i>
+                    <div class="logo-white center">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                </div>
+                <h2>Balance General</h2>
+                <h4>Informe financiero que proporciona una instantánea de la situación financiera de una empresa en
+                un momento específico. Muestra la relación entre los activos (lo que la empresa posee), los pasivos
+                (lo que la empresa debe) y el patrimonio neto (la inversión de los propietarios) en un momento dado.</h4>
+            </div>
+        </div>
+        <div class="space-bottom">
+            <div class="card estado-resultado" (click)="statementOfIncomeFlagChange()">
+                <div class="header-card">
+                    <div class="logo center">
+                        <i class="fa-light fa-chart-pie center"></i>
+                    </div>
+                    <i class="fa-solid fa-ellipsis form-logo"></i>
+                    <div class="logo-white center">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                </div>
+                <h2>Estado de Resultados</h2>
+                <h4>También conocido como Estado de Pérdidas y Ganancias, muestra los ingresos, costos y gastos de una
+                empresa durante un período específico (generalmente un mes, trimestre o año). Muestra si la empresa tuvo
+                ganancias o pérdidas durante ese período.</h4>
+            </div>
+        </div>
+        <div class="space-bottom">
+            <div class="card libro-diario" (click)="diaryBookFlagChange()">
+                <div class="header-card">
+                    <div class="logo center">
+                        <i class="fa-light fa-book center"></i>
+                    </div>
+                    <i class="fa-solid fa-ellipsis form-logo"></i>
+                    <div class="logo-white center">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                </div>
+                <h2>Libro Diario</h2>
+                <h4>Registro detallado de todas las transacciones financieras de una empresa en orden cronológico.
+                Cada entrada incluye la fecha, una descripción de la transacción, las cuentas afectadas, y el importe de débito y crédito.</h4>
+            </div>
+        </div>
+        <div class="space-bottom">
+            <div class="card libro-mayor" (click)="generalLedgerFlagChange()">
+                <div class="header-card">
+                    <div class="logo center">
+                        <i class="fa-light fa-chart-line center"></i>
+                    </div>
+                    <i class="fa-solid fa-ellipsis form-logo"></i>
+                    <div class="logo-white center">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                </div>
+                <h2>Libro Mayor</h2>
+                <h4>Registro que resume todas las transacciones registradas en el Libro Diario. Cada cuenta tiene
+                su propio libro mayor, y este informe muestra el saldo de cada cuenta después de cada transacción.</h4>
+            </div>
+        </div>
+        <div class="space-bottom">
+            <div class="card sumas-saldos" (click)="BalanceCheckSumsAndBalancesChange()">
+                <div class="header-card">
+                    <div class="logo center">
+                        <i class="fa-light fa-telescope center"></i>
+                    </div>
+                    <i class="fa-solid fa-ellipsis form-logo"></i>
+                    <div class="logo-white center">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                </div>
+                <h2>Sumas y saldos</h2>
+                <h4>Un reporte de sumas y saldos es un resumen financiero que muestra el saldo inicial, las transacciones
+                y el saldo actual de cuentas específicas en un período contable, lo que ayuda a las empresas a entender su
+                situación financiera.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<app-diary-book-form [flag]="diaryBookFlag" [subsidiaries]="subsidiaries" [areas]="areas" [transactionTypes]="transactionTypes" [currencies]="currencies" [principalCurrency]="principalCurrency" [otherCurrencySelected]="otherCurrencySelected" (flagChange)="diaryBookFlagChange()" [dateTo]="dateTo" [dateFrom]="dateFrom"></app-diary-book-form>
+<app-general-ledger-form [flag]="generalLedgerFlag" [subsidiaries]="subsidiaries" [areas]="areas" [currencies]="currencies" [principalCurrency]="principalCurrency" [otherCurrencySelected]="otherCurrencySelected" [accountPlan]="accountPlan" (flagChange)="generalLedgerFlagChange()" [dateTo]="dateTo" [dateFrom]="dateFrom"></app-general-ledger-form>
+<app-balance-sheet [flag]="balanceSheetFlag" [subsidiaries]="subsidiaries" [areas]="areas" [currencies]="currencies" [principalCurrency]="principalCurrency" [otherCurrencySelected]="otherCurrencySelected" (flagChange)="balanceSheetFlagChange()" [dateTo]="dateTo"></app-balance-sheet>
+<app-statement-of-income [flag]="statementOfIncomeFlag" [subsidiaries]="subsidiaries" [areas]="areas" [currencies]="currencies" [principalCurrency]="principalCurrency" [otherCurrencySelected]="otherCurrencySelected" (flagChange)="statementOfIncomeFlagChange()" [dateTo]="dateTo" [dateFrom]="dateFrom"></app-statement-of-income>
+<app-balance-check-sums-and-balances [flag]="BalanceCheckSumsAndBalances" [subsidiaries]="subsidiaries" [areas]="areas" [currencies]="currencies" [principalCurrency]="principalCurrency" [otherCurrencySelected]="otherCurrencySelected" (flagChange)="BalanceCheckSumsAndBalancesChange()" [dateTo]="dateTo" [dateFrom]="dateFrom"></app-balance-check-sums-and-balances>

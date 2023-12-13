@@ -1,0 +1,257 @@
+/*Quitar los estilos generales*/
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.accounting-voucher-view {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Background*/
+.container {
+  background-color: #F8F8F8;
+  padding: 2% 3%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+/*Título*/
+.title {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+.title i {
+  font-size: 25px;
+  border-radius: 100%;
+  padding: 15px 12px 15px 16px;
+  color: #fb9c7e;
+  background-color: #ffede7;
+}
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000000;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #383838;
+}
+hr {
+  border: none;
+  border-bottom: 1px solid #EDEDED;
+}
+/*Encabezado*/
+.header {
+  padding: 0 2%;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0 10px 0;
+}
+.column-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4%;
+  margin-bottom: 15px;
+}
+.option {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+}
+p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #757575;
+  margin: 0;
+  min-height: 31.25px;
+  padding: 5px 10px;
+}
+.backgruond-color {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #EDEDED;
+}
+input {
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  border: 1px solid #EDEDED;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  text-align: right;
+}
+.body {
+  flex-grow: 1;
+}
+
+/* Registrar nuevo*/
+.add-button {
+  display: flex;
+  justify-content: flex-end;
+}
+.add {
+  background-color: #66CDAA;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  gap: 5px;
+}
+.add:hover {
+  background-color: #5BC79F;
+}
+
+/*Glosa*/
+.glosa {
+  display: grid;
+  grid-template-columns: 1fr 6.1fr;
+  padding: 0 2%;
+  margin: 25px 0;
+}
+textarea {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  border: 1px solid #EDEDED;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  flex-wrap: 1;
+}
+
+/*Tabla*/
+table {
+  width: 100%;
+}
+th {
+  font-size: 16px;
+  font-weight: 600;
+  color: #383838;
+  text-align: left;
+  padding: 0 0 3px 3px;
+}
+
+/* Para los inputs del Debe y Haber */
+.result{
+  background-color: #8AEABA;
+  color: white;
+}
+/*-------------------------------------------------------*/
+/*Botones*/
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;  /* Esto distribuye los elementos hijos al máximo */
+  margin: 20px 0 0 0;
+  gap: 5%;  /* Puedes quitar el gap si ya estás usando space-between */
+}
+
+.arrow-buttons {
+  display: flex;
+  gap: 10px;
+}
+.down-button {
+  color: white;
+  font-size: 18px;
+  padding: 5px 30px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.navegation {
+  background-color: #BCE6FA;
+}
+.navegation:hover {
+  background-color: #A9E2F3;
+}
+.edit {
+  background-color: #D7B8FD;
+}
+.edit:hover {
+  background-color: #C9A9F0;
+}
+.print {
+  background-color: #FFADA1;
+}
+.print:hover {
+  background-color: #FF9B8F;
+}
+
+/*-----------------------------------------------*/
+/*Estilos para el modal*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322); 
+  backdrop-filter: blur(5px); 
+  z-index: 100; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup {
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+  width: 45%; /* Tamaño del popup */
+  background-color: #fff;
+  padding: 25px 35px;
+  z-index: 101; /* Coloca el popup por encima de la capa de fondo */
+  box-shadow: 0 5 15px rgba(0, 0, 0, 0.25); /* Sombra */
+  border-radius: 10px;
+}
+.confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.confirm h2 {
+  color: #939393;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.confirm h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #939393;
+  margin-bottom: 15px;
+  text-align: center;
+}

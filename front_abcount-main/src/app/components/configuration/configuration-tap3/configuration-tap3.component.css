@@ -1,0 +1,169 @@
+/*Body*/
+.container-tap3 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Background*/
+.configuration-tap3 {
+    background-color: #F8F8F8;
+    padding: 0 23% 3% 23%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-info {
+    background-color: white;
+    padding: 10px 25px 20px 25px;
+    border-radius: 5px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+/*Estilos de texto*/
+h2, h3 {
+    font-size: 16px;
+    color: #757575;
+    height: 16px;
+    margin: 0px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+h2 {
+    margin-top: 12px !important;
+}
+/*Linea*/
+hr {
+    border: none;
+    border-bottom: 1px solid #EDEDED;
+    margin-bottom: 18px;
+}
+/*Estilos de filas*/
+.row-2 {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*Alinear boton a la izquierda*/
+.other-currencies {
+    display: flex; 
+    margin: 8px 0 5px 0;
+}
+/*Lista de monedas*/
+.moneda-item {
+    margin-bottom: 10px;
+    display: inline-block;
+    color: #ffca43;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fff3e3;
+}
+
+/* Estilos para los botones "x" (remover moneda) */
+.remove-button {
+    background-color: #fff3e3;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #ffca43;
+    transition: background-color 0.3s;
+    margin-left: 12px;
+}
+.remove-button:focus {
+    outline: none;
+}
+
+/*Buscador de monedas*/
+.input-icon-container {
+    position: relative;
+    display: block; /* Cambia de inline-block a block */
+    width: 80%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+.input-group {
+    border: #D9D9D9 1px solid;
+    border-radius: 4px;
+    width: 100%;
+    padding: 5px 15px 5px 35px;
+    caret-color: #66CDAA;
+    transition: border 0.5s;
+    font-size: 15px;
+    outline: none;
+}
+
+.input-group:focus {
+    border: 1px solid #66CDAA;
+}
+.input-group:focus + .input-icon-container i {
+    color: #66CDAA !important;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #b2b2b2;
+    font-size: 16px;
+    font-weight: 500;
+    pointer-events: none;
+}
+
+
+.sugerencias-container {
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.sugerencia-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.sugerencia-item:hover {
+    background-color: #e8fff7;
+    color: #66CDAA;
+}
+
+.sugerencia-item:last-child {
+    border-bottom: none;
+}
+
+.edit-button {
+    background-color: #eeeeee;
+    border: solid 1px #bebebe;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-button:hover {
+    background-color: #aaaaaa;
+}
+.edit-button:hover i {
+    color: #ffffff;
+}
+.edit-button:focus {
+    outline: none;
+}
+.edit-button i {
+    font-size: 15px;
+    color: #757575;
+}
+
+.currencies-list {
+    flex-grow: 1;
+}

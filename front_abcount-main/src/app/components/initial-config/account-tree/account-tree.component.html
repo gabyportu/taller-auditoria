@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<div *ngFor="let account of accounts">
+    <div class="account-level" [style.marginLeft.px]="account.level * 25">
+      <app-my-button-squared (clicked)="showAddPopupChange(account)"></app-my-button-squared>
+      <span [ngClass]="{'text-orange': account.classificator, 'text-blue': !account.classificator}" (click)="toggleChildrenVisibility(account)">
+        <i class="fa-solid fa-caret-up" *ngIf="account.childrenAccounts && account.childrenAccounts.length && !account.expanded"></i>
+        <i class="fa-solid fa-caret-down" *ngIf="account.childrenAccounts && account.childrenAccounts.length && account.expanded"></i>
+        {{account.accountCode}} {{ account.nameAccount }}
+      </span>
+      <div class="options">
+        <i (click)="showEditPopupChange(account)" class="edit fa-solid fa-pen-circle"></i>
+        <app-circular-button *ngIf="account.childrenAccounts.length == 0" (clicked)="deleteAccount(account)"></app-circular-button>
+      </div>
+    </div>
+    <hr>
+    <div *ngIf="account.expanded">
+      <app-account-tree [accounts]="account.childrenAccounts"></app-account-tree>
+    </div>
+    <!-- Popup para agregar cuenta -->
+    <div class="overlay" *ngIf="account.showAddPopup">
+      <div class="popup">
+        <div class="popup-title">
+          <span class="icon">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </span>
+          <h2 class="h2-title">Registro de Cuenta</h2>
+        </div>
+        <div class="row-2-popup">
+          <h3>Dígitos del nivel</h3>
+          <input *ngIf="account.childrenAccounts.length == 0" [(ngModel)]="digitsLevel" type="number" min="1" max="4" step="1">
+          <h4 *ngIf="account.childrenAccounts.length != 0">{{account.childrenAccounts[0].digitsOfLevel}}</h4>
+        </div>
+        <div class="row-2-popup">
+          <h3>Nombre de la cuenta </h3>
+          <input [(ngModel)]="accountName" type="text" placeholder="Ingresa el nombre de la cuenta">
+        </div>
+        <div class="row-2-popup">
+          <h3>Reporte</h3>
+          <h3 *ngIf="account.report">Balance general</h3>
+          <h3 *ngIf="!account.report">Estado de resultados</h3>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="check" name="check" value="check" [(ngModel)]="accountMoneyRub">
+          <label for="check">Rubro monetario</label>
+        </div>
+        <div class="popup-buttons">
+          <app-my-button [isGreen]="true" (click)="addLevel(account)">ACEPTAR</app-my-button>
+          <app-my-button [isRed]="true" (click)="showAddPopupChange(account)">CANCELAR</app-my-button>
+        </div>
+      </div>
+    </div>
+    <!-- Popup para editar cuenta -->
+    <div class="overlay" *ngIf="account.showEditPopup">
+      <div class="popup">
+        <div class="popup-title">
+          <span class="icon">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </span>
+          <h2 class="h2-title">Editar Cuenta</h2>
+        </div>
+        <div class="row-2-popup">
+          <h3>Número de cuenta</h3>
+          <h4>{{account.accountCode}}</h4>
+        </div>
+        <div class="row-2-popup">
+          <h3>Nombre de la cuenta </h3>
+          <input [(ngModel)]="accountName" type="text" placeholder="Ingresa el nombre de la cuenta">
+        </div>
+        <div *ngIf="account.level!=0" class="row-2-popup">
+          <h3>Reporte</h3>
+          <h3 *ngIf="account.report">Balance general</h3>
+          <h3 *ngIf="!account.report">Estado de resultados</h3>
+        </div>
+        <div *ngIf="account.level==0" class="alinear">
+          <h3>Reporte</h3>
+          <label class="label-report alinear" for="balanceGeneral">
+            <input type="radio" name="report" id="balanceGeneral" [(ngModel)]="accountReport" [value]="true"> Balance General
+          </label>
+          <label class="label-report alinear" for="estadoResultados">
+            <input type="radio" name="report" id="estadoResultados" [(ngModel)]="accountReport" [value]="false"> Estado de Resultados
+          </label>
+        </div>
+        <div class="checkbox">
+          <input type="checkbox" id="check" name="check" value="check" [(ngModel)]="accountMoneyRub">
+          <label for="check">Rubro monetario</label>
+        </div>
+        <div class="popup-buttons">
+          <app-my-button [isGreen]="true" (click)="editAccount(account)">ACEPTAR</app-my-button>
+          <app-my-button [isRed]="true" (click)="showEditPopupChange(account)">CANCELAR</app-my-button>
+        </div>
+      </div>
+    </div>
+</div>

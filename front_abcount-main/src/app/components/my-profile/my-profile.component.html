@@ -1,0 +1,191 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<app-navbar></app-navbar>
+<div class="my-profile" *ngIf="!modeEdit">
+    <div class="header">
+        <h1>Mi perfil</h1>
+        <hr>
+    </div>
+    <div class="row-2">
+        <div class="upload-container center">
+            <div class="image-container">
+                <img [src]="imageURL" alt="Vista previa del logo" class="preview-image">
+            </div>
+        </div>
+        <div class="info">
+            <div style="width: 100%;">
+                <h2>Información de Cuenta</h2>
+                <h3>Nombre de usuario</h3>
+                <p>{{username}}</p>
+                <h3>Correo electrónico</h3>
+                <p>{{email}}</p>
+                <h3>Fecha de nacimiento</h3>
+                <p>{{birthdate}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="margin">
+        <hr style="margin-bottom: 15px;">
+        <div>
+            <h2>Información Personal</h2>
+            <div class="info-row-2">
+                <div>
+                    <h3>Nombre</h3>
+                    <p>{{name}}</p>
+                </div>
+                <div>
+                    <h3>Apellido</h3>
+                    <p>{{lastname}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Género</h3>
+            <div class="row-3">
+                <div [ngClass]="{'cuadro-seleccionado': gender === 1, 'cuadro':  gender !== 1}">                
+                    Mujer
+                </div>
+                <div [ngClass]="{'cuadro-seleccionado': gender === 2, 'cuadro':  gender !== 2}">
+                    Hombre
+                </div>
+                <div [ngClass]="{'cuadro-seleccionado': gender === 3, 'cuadro':  gender !== 3}">
+                    No binario
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 20px 0 15px 0;">
+        <div>
+            <h2>Información de Contacto</h2>
+            <div>
+                <h3>Dirección</h3>
+                <p>{{address}}</p>
+            </div>
+            <div>
+                <h3>Teléfono</h3>
+                <div class="info-row-2">
+                    <p>{{phoneCode}}</p>
+                    <p>{{phoneNumber}}</p>
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 20px 0 15px 0;">
+        <div>
+            <h2>Información Adicional</h2>
+            <div>
+                <h3>País</h3>
+                <p>{{country}}</p>
+            </div>
+            <div>
+                <h3>Carnet de Identificación</h3>
+                <div class="info-row-2">
+                    <p>{{noIdentity}}</p>
+                    <p>{{extNoIdentity}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <button *ngIf="!modeEdit" class="edit-button" (click)="enable()">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="my-profile" *ngIf="modeEdit">
+    <div class="header">
+        <h1>Editar mi perfil</h1>
+        <hr>
+    </div>
+    <div class="row-2">
+        <div class="upload-container center">
+            <div *ngIf="!imageURL" (dragover)="onDragOver($event)" (drop)="onDrop($event)" (dragleave)="onDragLeave($event)" [class.dragging]="isDragging">
+                <input type="file" (change)="onFileChanged($event)" accept="image/*" #fileInput style="display: none">
+                <div class="drag-drop-area" (click)="fileInput.click()">
+                    <div>Arrastra y suelta una imagen aquí o <span>selecciona un archivo</span></div>
+                </div>
+            </div>
+            <div *ngIf="imageURL" class="image-container">
+                <button class="delete-button" (click)="removeImage()">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+                <img [src]="imageURL" alt="Vista previa del logo" class="preview-image">
+            </div>
+        </div>
+        <div class="info">
+            <div style="width: 100%;">
+                <h2>Información de Cuenta</h2>
+                <h3>Nombre de usuario</h3>
+                <p>{{username}}</p>
+                <h3>Correo electrónico</h3>
+                <p>{{email}}</p>
+                <h3>Fecha de nacimiento</h3>
+                <input type="date" class="input" [(ngModel)]="birthdate" name="date" placeholder="Fecha de nacimiento">
+            </div>
+        </div>
+    </div>
+    <div class="margin">
+        <hr style="margin-bottom: 15px;">
+        <div>
+            <h2>Información Personal</h2>
+            <div class="info-row-2">
+                <div>
+                    <h3>Nombre</h3>
+                    <input type="text" class="input" [(ngModel)]="name" name="name" placeholder="Ingresa tu(s) nombre(s)">
+                </div>
+                <div>
+                    <h3>Apellido</h3>
+                    <input type="text" class="input" [(ngModel)]="lastname" name="lastname" placeholder="Ingresa tus apellidos">
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Género</h3>
+            <div class="row-3">
+                <div class="radio-button">
+                    <input type='radio' name="gender" id="woman" value="1" [(ngModel)]="gender"/>
+                    <label for="woman">&nbsp;Mujer</label>
+                </div>
+                <div class="radio-button">
+                    <input type='radio' name="gender" id="man" value="2" [(ngModel)]="gender"/>
+                    <label for="man">&nbsp;Hombre</label>
+                </div>
+                <div class="radio-button">
+                    <input type='radio' name="gender" id="nobinary" value="3" [(ngModel)]="gender"/>
+                    <label for="nobinary">&nbsp;No binario</label>
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 20px 0 15px 0;">
+        <div>
+            <h2>Información de Contacto</h2>
+            <div>
+                <h3>Dirección</h3>
+                <input type="text" class="input" [(ngModel)]="address" name="address" placeholder="Ingresa tu dirección">
+            </div>
+            <div>
+                <h3>Teléfono</h3>
+                <div class="info-row-2">
+                    <input type="text" class="input" [(ngModel)]="phoneCode" name="phoneCode" placeholder="Dominio del Teléfono: +591">
+                    <input type="text" class="input" [(ngModel)]="phoneNumber" name="phoneNumber" placeholder="Ingresa tu teléfono">
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 20px 0 15px 0;">
+        <div>
+            <h2>Información Adicional</h2>
+            <div>
+                <h3>País</h3>
+                <input type="text" class="input" [(ngModel)]="country" name="country" placeholder="Ingresa tu país">
+            </div>
+            <div>
+                <h3>Carnet de Identificación</h3>
+                <div class="info-row-2">
+                    <input type="text" class="input" [(ngModel)]="noIdentity" name="ciNumber" placeholder="Ingresar su número de CI">
+                    <input type="text" class="input" [(ngModel)]="extNoIdentity" name="ciCode" placeholder="Extensión">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <app-my-button *ngIf="modeEdit" [isGreen]="true" (click)="save()" style="margin-right: 10px;">GUARDAR CAMBIOS</app-my-button>
+            <app-my-button *ngIf="modeEdit" [isRed]="true" (click)="cancel()">CANCELAR</app-my-button>
+        </div>
+    </div>
+</div>

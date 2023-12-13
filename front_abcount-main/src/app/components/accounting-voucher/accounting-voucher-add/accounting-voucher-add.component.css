@@ -1,0 +1,380 @@
+/*Quitar los estilos generales*/
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+.accounting-voucher-add {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Background*/
+.container {
+  background-color: #F8F8F8;
+  padding: 2% 3%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+/*Título*/
+.title {
+  display: flex;
+  margin-bottom: 15px;
+  align-items: center;
+}
+.title i {
+  font-size: 45px;
+  color: #f0c0c6;
+  margin-right: 10px;
+}
+h2 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #000000;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #383838;
+}
+hr {
+  border: none;
+  border-bottom: 1px solid #EDEDED;
+}
+/*Encabezado*/
+.header {
+  padding: 0 2%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.column-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4%;
+  margin-bottom: 15px;
+}
+.option {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+}
+input {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  border: 1px solid #EDEDED;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  text-align: right;
+}
+
+.body {
+  flex-grow: 1;
+}
+
+/*Glosa*/
+.glosa {
+  display: grid;
+  grid-template-columns: 1fr 6.1fr;
+  padding: 0 2%;
+  margin: 25px 0;
+}
+textarea {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #757575;
+  font-weight: 400;
+  border: 1px solid #EDEDED;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-sizing: border-box;
+  outline: none;
+  resize: none;
+  flex-wrap: 1;
+}
+.glosa-message {
+  display: none;
+  margin-top: 10px;
+  text-align: right;
+}
+.glosa-message.show {
+  display: block;
+}
+
+/*Tabla*/
+table {
+  width: 100%;
+}
+th {
+  font-size: 16px;
+  font-weight: 600;
+  color: #383838;
+  text-align: left;
+  padding: 0 0 3px 3px;
+}
+td {
+  text-align: right;
+}
+
+.number-account-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 5px 0;
+  border: 1px solid #E8E8E8;
+  z-index: 1;
+}
+.number-account-list-option {
+  color: #757575;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.number-account-list-option:hover {
+  color: black;
+  background-color: #f8f8f8;
+}
+.number-account-list-option:active {
+  background-color: #DCF8EF;
+  color: #66cdab;
+}
+.red-text {
+  color: #f0394d;
+}
+.green-text {
+  color: #34c54d;
+}
+/* Para los inputs del Debe y Haber */
+.result{
+  background-color: #8AEABA;
+  color: white;
+}
+/*------------------------------------------------------------------------------------------------------------------*/
+/*Botones*/
+.footer-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 15px 0;
+}
+.footer-buttons button {
+  padding: 8px 25px;
+  font-size: 16px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+.save {
+  background-color: #8AEABA;
+}
+.cancel {
+  background-color: #FF7373;
+}
+.save:hover {
+  background-color: #66CDAA;
+}
+.cancel:hover {
+  background-color: #ef5350 !important;
+}
+.save i, .cancel i {
+  margin-right: 8px;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  font-weight: 600;
+}
+
+/*----------------------------------------------------------------------------------------------*/
+/*Mensaje emergente*/
+/* Estilos para la capa de fondo desenfocada */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  z-index: 100; /* Coloca la capa por encima de todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Estilos para el popup */
+.popup {
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+  background-color: #fff;
+  padding: 25px 50px;
+  z-index: 101; /* Coloca el popup por encima de la capa de fondo */
+  box-shadow: 0 5 15px rgba(0, 0, 0, 0.25); /* Sombra */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 30%;
+}
+.popup i {
+  font-size: 50px;
+}
+.gradient-green {
+  font-size: 70px;
+  background-image: linear-gradient(to bottom, #66cdaa, #489ce9);
+  background-clip: text;
+  -webkit-background-clip: text; /* Para navegadores webkit (Safari, Chrome) */
+  color: transparent;
+}
+.gradient-red {
+  font-size: 70px;
+  background-image: linear-gradient(to bottom, #fb9c7e, #f37f90);
+  background-clip: text;
+  -webkit-background-clip: text; /* Para navegadores webkit (Safari, Chrome) */
+  color: transparent;
+}
+.popup h2 {
+  font-size: 24px;
+  color: #757575;
+  margin: 15px 0 5px 0;
+}
+.popup h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #939393;
+}
+
+/**/
+.loading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #383838;
+  margin-bottom: 10px;
+}
+.add-button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.add-button i{
+  margin-left: 5px;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #D7B8FD;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.custom-file-upload:hover {
+  background-color: #C9A8F5;
+}
+
+.add {
+  background-color: #66CDAA;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  white-space: nowrap;
+}
+
+.add:hover {
+  background-color: #5BC79F;
+}
+
+input[type="file"] {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+/*Checkbox*/
+.checkbox-area {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+.checkbox-label {
+  margin-bottom: 5px;
+}
+.custom-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.custom-checkbox + label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #383838;
+}
+.custom-checkbox + label:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid;
+  border-color: #66CDAA;
+  background-color: #fff;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.custom-checkbox:checked + label:before {
+  background-color: #66CDAA;
+}
+.custom-checkbox:checked + label:before {
+  content: "\2713"; /* Código de caracter Unicode del icono de check */
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 16px;
+}

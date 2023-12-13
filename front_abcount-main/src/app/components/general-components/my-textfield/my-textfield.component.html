@@ -1,0 +1,7 @@
+<div class="input-group">
+    <label for="message" [ngClass]="{'invalid-label': isInvalid()}"><i class="{{iconInput}}" [ngClass]="{'invalid-icon': isInvalid()}"></i>{{label}}</label>
+    <input autocomplete="off" id="message" type={{type}} placeholder={{placeholder}} [formControl]="control" [pattern]="pattern"/>
+    <div class="error-message" *ngIf="isInvalid()">
+        {{errorMessage}}
+    </div>
+</div>

@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*Plan de cuentas*/
+.tree {
+    list-style: none;
+    padding-left: 0;
+}
+.tree ul {
+    margin: 0;
+    padding: 0;
+}
+.tree li {
+    margin: 0 0 0 25px; /* Espacio a la izquierda entre niveles */
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    color: #757575;
+}
+.toggle {
+    cursor: pointer;
+    user-select: none;
+    margin-left: 5px;
+}
+.account-details {
+    margin-left: 8px; /* Espacio entre el botón y los detalles de la cuenta */
+}
+.line {
+    margin: 5px 0 10px 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+}

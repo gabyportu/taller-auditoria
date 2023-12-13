@@ -1,0 +1,59 @@
+/*Background*/
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.322); /* Fondo semi-transparente */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    z-index: 100; /* Coloca la capa por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Popup*/
+.container {
+    position: fixed;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+    background-color: #fff;
+    z-index: 101; /* Coloca el popup por encima de la capa de fondo */
+    box-shadow: 0 5 15px rgba(0, 0, 0, 0.25); /* Sombra */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    max-width: 1000px;
+}
+/*Titulo*/
+.title {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px 0 25px;
+}
+.title h2 {
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
+}
+.title i {
+    font-size: 20px;
+    color: #bbbbbb;
+}
+.title i:hover {
+    cursor: pointer;
+    color: #757575;
+}
+.line {
+    margin: 0 25px 10px 25px;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+}
+.account-plan {
+    height: 65vh;
+    overflow-y: auto;
+    padding: 0 15px 15px 0;
+    margin-right: 25px;
+}

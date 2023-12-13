@@ -1,0 +1,37 @@
+<div class="wrapper" *ngIf="flag">
+  <div class="container">
+    <div class="title">
+      <h2>Tipos de Cambio</h2>
+      <i class="fa-solid fa-xmark" (click)="closeModal()"></i>
+    </div>
+    <hr>
+    <div class="table-container">
+      <mat-table [dataSource]="data">
+        <!-- Columnas dinámicas para las monedas -->
+        <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+          <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+          <mat-cell *matCellDef="let record">{{record[column]}}</mat-cell>
+        </ng-container>
+        
+        <!-- Editar Column -->
+        <ng-container matColumnDef="Editar">
+          <mat-header-cell class="cell-title-center" *matHeaderCellDef>Editar</mat-header-cell>
+          <mat-cell class="cell-center" *matCellDef="let record; let i = index;">
+            <button class="edit" (click)="loadExchangeRateForEdit(record, i)" mat-icon-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        
+        <!-- Columnas -->
+        <mat-header-row *matHeaderRowDef="allColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: allColumns;"></mat-row>
+      </mat-table>
+    </div>
+    <div class="buttons-container">
+      <button class="new" (click)="flagAddChange()"><i class="fa-solid fa-plus"></i>NUEVO</button>
+    </div>
+  </div>
+</div>
+<app-currency-exchange-edit [flag]="flagEdit" (flagChange)="flagEditChange()" [register]="selectedRecord"></app-currency-exchange-edit>
+<app-currency-exchange-add [flag]="flagAdd" [date]="date" (flagChange)="flagAddChange()"></app-currency-exchange-add>

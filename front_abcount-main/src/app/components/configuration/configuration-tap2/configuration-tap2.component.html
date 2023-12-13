@@ -1,0 +1,162 @@
+<div class="container-tap2">
+    <app-navbar></app-navbar>
+    <app-config-navbar [numberOption]="2"></app-config-navbar>
+    <div class="configuration-tap2-edit" *ngIf="modeEdit">
+        <div class="tap2-edit">
+            <div>
+                <div class="column-2">
+                    <div class="titulo">
+                        <div>
+                            <img class="imagen-titulo" src="../../../../assets/sucursal.svg">
+                            <h2>SUCURSAL</h2>
+                        </div>
+                    </div>
+                    <div class="campos">
+                        <app-my-textfield type="text" iconInput="fa-solid fa-shop" label="Nombre de la sucursal" [control]="controlSubsidiaryName" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese el nombre de tu sucursal"></app-my-textfield>
+                        <div class="error-message" #errorMessageSucursal>{{messageSucursal}}</div>
+                        <div style="height: 20px;"></div>
+                        <app-my-textfield type="text" iconInput="fa-regular fa-map-marker-alt" label="Dirección de la sucursal" [control]="controlSubsidiaryAddress" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese la dirección de tu sucursal"></app-my-textfield>
+                        <div class="right">
+                            <app-my-button [isGreen]="true" (click)="addSubsidiary()">AGREGAR</app-my-button>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 15px;"></div>
+                <div class="column-2">
+                    <div class="titulo">
+                        <div>
+                            <img class="imagen-titulo" src="../../../../assets/area.svg">
+                            <h2>ÁREA</h2>
+                        </div>
+                    </div>
+                    <div class="campos">
+                        <app-my-textfield type="text" iconInput="fa-regular fa-building" label="Nombre del área" [control]="controlAreaName" [pattern]="patternAll" errorMessage="Ingrese un valor válido" placeholder="Ingrese el nombre de tu área"></app-my-textfield>
+                        <div class="error-message" #errorMessageArea>{{messageArea}}</div>
+                        <div class="right">
+                            <app-my-button [isGreen]="true" (click)="addArea()">AGREGAR</app-my-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tree-background">
+                <div class="tree">
+                    <ul>
+                        <li *ngFor="let sucursal of subsidiaries">
+                            <div style="display: flex;">
+                                <button class="toggle" (click)="toggleChildren(sucursal)">
+                                    <i style="color: #757575;" class="fa-solid" [ngClass]="{'fa-caret-up': sucursal.mostrarHijos, 'fa-caret-down': !sucursal.mostrarHijos}"></i>
+                                </button>                                               
+                                <div class="area" style="margin: 0px;">
+                                    <span>{{sucursal.subsidiaryName}}</span>
+                                </div>
+                            </div>
+                            <hr class="separator">
+                            <ul *ngIf="sucursal.mostrarHijos">
+                                <li *ngFor="let area of areas">
+                                    <div class="area">    
+                                        <span>{{area.areaName}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul *ngIf="sucursal.mostrarHijos">
+                                <li *ngFor="let newArea of newAreas">
+                                    <div class="area">    
+                                        <span>{{newArea.areaName}}</span>
+                                        <button  class="circulo" (click)="deleteArea(newArea.areaName)">
+                                            <i class="fa-solid fa-x"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li *ngFor="let newSucursal of newSubsidiaries">
+                            <div style="display: flex;">
+                                <button class="toggle" (click)="toggleChildren(newSucursal)">
+                                    <i style="color: #757575;" class="fa-solid" [ngClass]="{'fa-caret-up': newSucursal.mostrarHijos, 'fa-caret-down': !newSucursal.mostrarHijos}"></i>
+                                </button>                                               
+                                <div class="area" style="margin: 0px;">
+                                    <span>{{newSucursal.subsidiaryName}}</span>
+                                    <button class="circulo" style="margin: 0px;" (click)="deleteSubsidiary(newSucursal.subsidiaryName)">
+                                        <i class="fa-solid fa-x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr class="separator">
+                            <ul *ngIf="newSucursal.mostrarHijos">
+                                <li *ngFor="let area of areas">
+                                    <div class="area">    
+                                        <span>{{area.areaName}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul *ngIf="newSucursal.mostrarHijos">
+                                <li *ngFor="let newArea of newAreas">
+                                    <div class="area">    
+                                        <span>{{newArea.areaName}}</span>
+                                        <button  class="circulo" (click)="deleteArea(newArea.areaName)">
+                                            <i class="fa-solid fa-x"></i>
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div></div>
+            <div class="right">
+                <app-my-button [isGreen]="true" (click)="save()" style="margin-right: 10px;">GUARDAR CAMBIOS</app-my-button>
+                <app-my-button [isRed]="true" (click)="cancel()">CANCELAR</app-my-button>
+            </div>
+        </div>
+    </div>
+    <div class="configuration-tap2" *ngIf="!modeEdit">
+        <div class="tap2">
+            <div>
+                <div class="titulo" style="height: 192px;">
+                    <div>
+                        <img class="imagen-titulo" src="../../../../assets/sucursal.svg">
+                        <h2>SUCURSAL</h2>
+                    </div>
+                </div>
+                <div style="height: 15px;"></div>
+                <div class="titulo" style="height: 135px;">
+                    <div>
+                        <img class="imagen-titulo" src="../../../../assets/area.svg">
+                        <h2>ÁREA</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="tree-background">
+                <div class="tree">
+                    <ul>
+                        <li *ngFor="let sucursal of subsidiaries">
+                            <div style="display: flex;">
+                                <button class="toggle" (click)="toggleChildren(sucursal)">
+                                    <i style="color: #757575;" class="fa-solid" [ngClass]="{'fa-caret-up': sucursal.mostrarHijos, 'fa-caret-down': !sucursal.mostrarHijos}"></i>
+                                </button>                                               
+                                <div class="area" style="margin: 0px;">
+                                    <span>{{sucursal.subsidiaryName}}</span>
+                                </div>
+                            </div>
+                            <hr class="separator">
+                            <ul *ngIf="sucursal.mostrarHijos">
+                                <li *ngFor="let area of areas">
+                                    <div class="area">    
+                                        <span>{{area.areaName}}</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div></div>
+            <div class="right">
+                <button class="edit-button" (click)="edit()">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

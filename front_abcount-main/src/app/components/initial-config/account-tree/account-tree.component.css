@@ -1,0 +1,152 @@
+.account-level {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #383838;
+}
+.options {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+    align-items: center;
+}
+.options .edit {
+    color: #D7B8FD;
+    font-size: 25px;
+}
+.options .edit:hover {
+    color: #C9A9F0;
+}
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 4px 0 6px 0;
+}
+/*Modal*/
+/*--------------------------------------------------------------*/
+/*Modal*/
+/* Estilos para la capa de fondo desenfocada */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.322); /* Fondo semi-transparente */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    z-index: 100; /* Coloca la capa por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Estilos para el popup */
+.popup {
+    position: fixed;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+    width: 45%; /* Tamaño del popup */
+    background-color: #fff;
+    padding: 25px 35px;
+    z-index: 101; /* Coloca el popup por encima de la capa de fondo */
+    box-shadow: 0 5 15px rgba(0, 0, 0, 0.25); /* Sombra */
+    border-radius: 10px;
+}
+.row-2-popup {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    margin-top: 15px;
+    align-items: center;
+}
+.popup-title {
+    display: flex;
+    align-items: center;
+}
+.icon {
+    width: 50px; /* Establece el ancho deseado */
+    height: 50px; /* Establece la misma altura que el ancho */
+    margin-right: 10px;
+    background-color: #E9F8FB;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon i {
+    color: #6ACAD8;
+    font-size: 25px;
+}
+.h2-title {
+    font-size: 20px;
+    font-weight: 600;
+    color:#757575;
+    margin: 0px !important;
+}
+h3 {
+    font-size: 16px;
+    color: #757575;
+    margin: 0px;
+    font-weight: 500;
+}
+input {
+    font-size: 16px;
+    border: #D9D9D9 1px solid;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    padding: 3px 8px;
+    caret-color: #66CDAA;
+    transition: border 0.5s;
+}
+input:focus {
+    border: 1px solid #66CDAA;
+}
+.checkbox {
+    display: flex;
+    color: #757575;
+    margin: 15px 0px 10px 0px;
+    align-items: center;
+    gap: 10px;
+}
+.checkbox input {
+    width: 15px;
+    height: 15px;
+}
+.checkbox label {
+    margin: 0;
+}
+.label-report {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #757575;
+    margin: 10px 0px;
+}
+input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin: 0px 5px 0px 20px;
+}
+.popup-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5px;
+    gap: 10px;
+}
+.alinear {
+    display: flex; 
+    align-items: center;
+}
+
+/*Colores de los textos*/
+.text-orange {
+color: #fb9c7e;
+}
+.text-blue {
+color: #489CE9;
+}

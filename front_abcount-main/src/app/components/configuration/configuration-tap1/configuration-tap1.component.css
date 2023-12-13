@@ -1,0 +1,143 @@
+/*Body*/
+.container-tap1 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Background*/
+.configuration-tap1 {
+    background-color: #F8F8F8;
+    padding: 0px 20% 40px 20%;
+    flex-grow: 1;
+}
+/*Centrear*/
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Texto*/
+h2 {
+    font-size: 16px;
+    color: white;
+    margin: 0px;
+    margin-top: 8px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #757575;
+    margin-bottom: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+    line-height: 16px;
+}
+/*Iconos de los titulos*/
+.icono {
+    font-size: 50px;
+    color: #ffffff;
+    padding-right: 8px;
+}
+/*Seccion identificacion*/
+.row-2 {
+    display: grid;
+    grid-template-columns: 20% 78%;
+    gap: 2%;
+}
+.titulo {
+    display: flex;
+    align-items: center;
+    background-color: #BCE6FA;
+    border-radius: 5px;
+    padding: 20px;
+}
+.empresa {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 18px 25px 23px 25px;
+}
+.identificacion-datos {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 15px;
+}
+.logo {
+    display: grid;
+    grid-template-columns: 30px calc(100% - 30px);
+    gap: 5px;
+}
+.logo button {
+    background-color: #EEEEEE;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo button:hover {
+    background-color: #c7c7c7;
+}
+.logo button:focus {
+    outline: none;
+}
+.logo button i {
+    color: #757575;
+    font-size: 15px;
+}
+.logo img {
+    max-width: 100%;
+    max-height: 160px;
+}
+/*Seccion ubicacion*/
+.campos {
+    background-color: #ffffff;
+    padding: 18px 25px 23px 25px;
+    border-radius: 5px;
+}
+
+/*Buton para editar*/
+.right {
+    width: 100%;
+    display: flex; 
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.edit-button {
+    background-color: #eeeeee;
+    border: solid 1px #bebebe;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-button:hover {
+    background-color: #aaaaaa;
+}
+.edit-button:hover i {
+    color: #ffffff;
+}
+.edit-button:focus {
+    outline: none;
+}
+.edit-button i {
+    font-size: 15px;
+    color: #757575;
+}
+/*Mensaje de error inferior*/
+.error-message {
+    color: #ff7e7e;
+    font-size: 15px;
+    font-weight: 500;
+    display: none;
+    margin-top: 15px;
+}
+.error-message.show {
+    display: block;
+}

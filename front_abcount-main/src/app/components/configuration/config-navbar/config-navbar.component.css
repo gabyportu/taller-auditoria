@@ -1,0 +1,72 @@
+/*Quitar los estilos generales*/
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*Background*/
+.margen {
+    background-color: #F8F8F8;
+    padding: 2.5% 8% 2% 8%;
+    font-family: 'Roboto', sans-serif;
+}
+/*Titulo principal*/
+.icon {
+    display: flex;
+    align-items: center;
+}
+.icon i {
+    font-size: 40px;
+    color: #66dcaa;
+}
+h1 {
+    font-size: 30px;
+    color: #787878;
+    margin-bottom: 0px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+.title p {
+    font-size: 15px;
+    color: #787878; 
+    margin: 10px 0px 20px 0px;
+}
+
+/*Navbar de configuración*/
+.config-navbar {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+.config-navbar a {
+    font-size: 16px;
+    color: #b2b2b2; 
+    padding: 0px 0px 5px 10px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+}
+.active-subtitle {
+    color: #383838 !important;
+}
+.first {
+    border-bottom: #BCE6FA solid 2.5px;
+}
+.second {
+    border-bottom: #d6b8fe solid 2.5px;
+}
+.thrid {
+    border-bottom: #F9DE9B solid 2.5px;
+}
+.fourth {
+    border-bottom: #FED4DE solid 2.5px;
+}
+.fifth {
+    border-bottom: #a4fcd7 solid 2.5px;
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid #EDEDED;
+}

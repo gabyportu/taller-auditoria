@@ -1,0 +1,134 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<div class="accounting-voucher-view">
+  <app-navbar></app-navbar>
+  <div class="container">
+    <div class="title">
+      <i class="fa-regular fa-folder-open"></i>
+      <h2>Comprobantes Contables</h2>
+    </div>
+    <hr>
+    <div class="header">
+      <div class="column-3">
+        <div class="option" style="align-items: flex-end;">
+          <h3>Empresa</h3>
+          <h3 style="color: #757575;">{{companyName}}</h3>
+        </div>
+        <div></div>
+        <div class="add-button">
+          <button class="add center" routerLink="/accounting-voucher/add">
+            <i class="fa-solid fa-plus"></i>
+            REGISTRAR NUEVO
+          </button>
+        </div>
+      </div>
+      <div class="column-3">  
+        <div class="option">
+          <h3>Sucursal</h3>
+          <app-combo-box [selectedOption]="sucursales[0]" [options]="sucursales" (optionSelected)="subsidiarySelected($event)"></app-combo-box>
+        </div>
+        <div class="option">
+          <h3>Área</h3>
+          <app-combo-box [selectedOption]="areas[0]" [options]="areas" (optionSelected)="areaSelected($event)"></app-combo-box>
+        </div>
+        <div class="option">
+          <h3>Documento</h3>
+          <app-combo-box [selectedOption]="documentos[0]" [options]="documentos" (optionSelected)="documentSelected($event)"></app-combo-box>
+        </div>
+      </div>
+      <div class="column-3" [style.margin-bottom]="cbteAjuste ? '5px' : '15px'">
+        <div class="option">
+          <h3>Fecha</h3>
+          <input type="date" [(ngModel)]="fecha">
+        </div>
+        <div class="option">
+          <h3>Nro de comprobante</h3>
+          <input type="text" style="text-align: right;" [(ngModel)]="numComprobante" disabled="true">
+        </div>
+        <div class="option">
+          <h3>Moneda</h3>
+          <app-combo-box *ngIf="!cbteAjuste" [selectedOption]="currencySelect" [options]="monedas" (optionSelected)="currencySelected($event)"></app-combo-box>
+          <p class="backgruond-color" *ngIf="cbteAjuste">{{currencySelect.name}}</p>
+        </div>
+      </div>
+      <div *ngIf="cbteAjuste" style="text-align: end; margin-bottom: 5px;">
+        <h3>Cbte de ajuste</h3>
+      </div>
+    </div>
+    <hr>
+    <div class="body">
+      <div class="glosa">
+        <h3 style="padding-top: 5px;">GLOSA</h3>
+        <textarea [(ngModel)]="glosa" maxlength="240" disabled="true"></textarea>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Cuenta</th>
+            <th>Auxiliar</th>
+            <th>Entidad</th>
+            <th>Debe</th>
+            <th>Haber</th>
+            <th>Glosa</th>
+            <th>Nro documento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entrada of listTransactionAccount; let i = index">
+            <td class="backgruond-color" style="width: 10%;">
+              <p>{{entrada.numeroCuenta}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 10%;">
+              <p>{{entrada.nombreCuenta}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 10%;">
+              <p>{{entrada.auxiliar}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 10%;">
+              <p>{{entrada.entidad}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 10%;">
+              <p style="text-align: right;">{{entrada.debe}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 10%;">
+              <p style="text-align: right;">{{entrada.haber}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 30%;">
+              <p>{{entrada.glosa}}</p>
+            </td>
+            <td class="backgruond-color" style="width: 10%;">
+              <p>{{entrada.nroDoc}}</p>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" style="text-align: right;"><h3>SUMAS IGUALES&nbsp;&nbsp;&nbsp;</h3></td>
+            <td><input class="result" type="text" [(ngModel)]="totalDebe" readonly disabled="true"></td>
+            <td><input class="result" type="text" [(ngModel)]="totalHaber" readonly disabled="true"></td>
+            <td colspan="3"></td>
+            <br><br> 
+          </tr>
+         
+        </tbody>
+      </table>
+      <div class="footer-buttons">
+        <div class="arrow-buttons">
+          <button class="navegation down-button" (click)="navegar('izquierda')"><i class="fa-solid fa-caret-left"></i></button>
+          <button class="navegation down-button" (click)="navegar('derecha')"><i class="fa-solid fa-caret-right"></i></button>
+        </div>
+        <div class="print-button">
+          <button class="print down-button" (click)="printPdf()"><i class="fa-solid fa-print"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal de confirmación -->
+<div class="overlay" *ngIf="mostrarPopupConfirm">
+  <div class="popup confirm">
+    <div class="loading">
+      <h2>Generando PDF</h2>
+      <h3>El comprobante se encuentra siendo generado, por favor espere</h3>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+  </div>
+</div>

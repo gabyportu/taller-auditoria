@@ -1,0 +1,26 @@
+<div class="container-tap3">
+    <app-navbar></app-navbar>
+    <app-config-navbar [numberOption]="3"></app-config-navbar>
+    <div class="configuration-tap3">
+        <div class="card-info">
+            <h2>INICIO DE USO</h2>
+            <div class="row-2">
+                <h3>Fecha de registro de la empresa</h3>
+                <h3 style="color: #B2B2B2;">{{registerDate}}</h3>
+            </div>
+            <hr>
+            <div style="margin-bottom: 0px;" class = "row-2">
+                <h3>MONEDA PRINCIPAL</h3>
+                <h3 style="color: #B2B2B2;">Bolivianos</h3>
+            </div>
+            <div class="other-currencies">
+                <h3>Otras monedas que quiera manejar</h3>
+            </div>
+            <div>
+                <div *ngFor="let currency of currencies" class="moneda-item">
+                {{ currency.abbreviationName }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

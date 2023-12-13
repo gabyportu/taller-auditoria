@@ -1,0 +1,203 @@
+/*Body*/
+.container-tap2 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Background*/
+.configuration-tap2 {
+    background-color: #F8F8F8;
+    padding: 0 30%;
+    flex-grow: 1;
+}
+.tap2 {
+    display: grid;
+    grid-template-columns: 33% 63%;
+    gap: 4%;
+}
+.configuration-tap2-edit {
+    background-color: #F8F8F8;
+    padding: 0 20%;
+    flex-grow: 1;
+}
+.tap2-edit {
+    display: grid;
+    grid-template-columns: 63% 35%;
+    gap: 2%;
+}
+.column-2 {
+    display: grid;
+    grid-template-columns: 25% 72%;
+    gap: 3%;
+}
+/*Texto*/
+h2 {
+    font-size: 16px;
+    color: white;
+    margin: 0px;
+    margin-top: 8px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #757575;
+    margin-bottom: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+    line-height: 16px;
+}
+.separator {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+}
+/*Primera seccion*/
+.titulo {
+    display: flex;
+    align-items: center;
+    background-color: #d6b8fe;
+    border-radius: 5px;
+    padding: 20px;
+}
+.imagen-titulo {
+    width: 60px;
+    margin-top: 8px;
+}
+.campos {
+    background-color: #ffffff;
+    padding: 18px 25px;
+    border-radius: 5px;
+}
+.right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+/*Lado derecho*/
+.tree-background {
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: 344px;
+}
+.tree{
+    width: 100%;
+    background: url(/assets/buildings.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position-x: 90%;
+    background-position-y: 95%;
+    border-radius: 5px;
+    padding: 10px 15px 10px 0px;
+    height: 344px;
+    overflow-y: auto;
+}
+/* Para el arbol */
+/* Estilos para el árbol */
+.tree ul {
+    list-style-type: none;
+    padding-left: 15px; /* Sangría para los niveles */
+}
+.tree li::before {
+    content: "";
+    position: absolute;
+    height: calc(100% - 10px);
+}
+/* Estilos para los botones de expansión/ocultación */
+.toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+.toggle:focus {
+    outline: none;
+}
+/* Estilo para los botones de expansión/ocultación cuando están expandidos */
+.toggle.expanded {
+    transform: rotate(90deg); /* Gira el botón para indicar expansión */
+}
+/* Estilos para los elementos del árbol */
+.tree span {
+    padding: 5px 10px;
+    border-radius: 5px;
+    padding-left: 10px; /* Sangría para los niveles */
+    font-size: 15px;
+    font-weight: 400;
+    color: #757575;
+    display: inline-block;
+    margin: 0;
+} 
+/* Estilos para el elemento raíz del árbol */
+.tree ul:first-child > li {
+    padding-top: 0;
+}
+.tree hr {
+    margin: 0px;
+}
+/*Areas*/
+.area {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 8px;
+}
+/* Estilos para los círculos */
+.circulo {
+    background-color: #f59898;
+    color: white;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    z-index: 1;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+}
+.circulo:hover {
+    background-color: #ef5350;
+    color: white;
+}
+.circulo:focus {
+    outline: none;
+}
+/*Mensajes de error*/
+.error-message {
+    color: #ff7e7e;
+    font-size: 12px;
+    font-weight: 500;
+    display: none;
+}
+.error-message.show {
+    display: block;
+}
+/*Boton editar*/
+.edit-button {
+    background-color: #eeeeee;
+    border: solid 1px #bebebe;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-button:hover {
+    background-color: #aaaaaa;
+}
+.edit-button:hover i {
+    color: #ffffff;
+}
+.edit-button:focus {
+    outline: none;
+}
+.edit-button i {
+    font-size: 15px;
+    color: #757575;
+}

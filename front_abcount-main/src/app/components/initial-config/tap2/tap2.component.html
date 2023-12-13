@@ -1,0 +1,70 @@
+<div class="tap2">
+    <div class="container">
+        <h1 class="header-title">Configuración de la Empresa</h1>
+        <hr class="line">
+        <app-progress [steps]="[1, 2, 3, 4]" [currentStep]="2"></app-progress>
+        <div class="wrapper">
+            <div>
+                <hr class="separator">
+                <div class="wrapper2">
+                    <div><h2>SUCURSAL</h2></div>
+                    <div>
+                        <app-my-textfield type="text" [iconInput]="subsidiaryName.iconInputSubsidiaryName" [label]="subsidiaryName.labelSubsidiaryName" [control]="controlSubsidiaryName" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="subsidiaryName.placeholderSubsidiaryName"></app-my-textfield>
+                        <div class="error-message" #errorMessageSucursal>{{messageSucursal}}</div>
+                        <div style="height: 15px;"></div>
+                        <app-my-textfield type="text" [iconInput]="address.iconInputAddress" [label]="address.labelAddress" [control]="controlSubsidiaryAddress" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="address.placeholderAddress"></app-my-textfield>
+                    </div>
+                </div>
+                <div class="right">
+                    <app-my-button [isGreen]="true" (click)="agregarSucursal()">AGREGAR</app-my-button>
+                </div>
+                <hr class="separator">
+                <div class="wrapper2">
+                    <div><h2>ÁREA</h2></div>
+                    <div>
+                        <app-my-textfield type="text" [iconInput]="area.iconInputArea" [label]="area.labelArea" [control]="controlAreaName" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="area.placeholderArea"></app-my-textfield>
+                        <div class="error-message" #errorMessageArea>{{messageArea}}</div>
+                    </div>
+                </div>
+                <div class="right">
+                    <app-my-button [isGreen]="true" (click)="agregarArea()">AGREGAR</app-my-button>
+                </div>
+                <hr class="separator">
+            </div>
+            <div class="tree">
+                <h2 class="enterprise-name">{{enterpriseName}}</h2>
+                <ul>
+                    <li *ngFor="let sucursal of sucursales">
+                        <hr class="separator">
+                        <div class="subsidiary">
+                            <button class="toggle" (click)="toggleChildren(sucursal)">
+                                <i style="color: #757575;" class="fa-solid" [ngClass]="{'fa-caret-up': sucursal.mostrarHijos, 'fa-caret-down': !sucursal.mostrarHijos}"></i>
+                            </button>                                               
+                            <div class="area" style="margin: 0px;">
+                                <span>{{sucursal.name}}</span>
+                                <button class="circulo" style="margin: 0px;" (click)="eliminarSucursal(sucursal.name)">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <hr class="separator">
+                        <ul *ngIf="sucursal.mostrarHijos">
+                            <li *ngFor="let area of areas">
+                                <div class="area">    
+                                    <span>{{area}}</span>
+                                    <button class="circulo" (click)="eliminarArea(area)">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation">
+            <div><a routerLink="/initial-config/tap1">&lt;&lt; Atras</a></div>
+            <div><a (click)="verificar()">Siguiente &gt;&gt;</a></div>
+        </div>
+    </div>
+</div>

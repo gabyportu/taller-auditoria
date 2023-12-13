@@ -1,0 +1,37 @@
+/*Background*/
+.background {
+    background: url(../../../assets/background.jpg) no-repeat center center fixed;
+    height: 100vh;
+    width: 100vw;
+}
+/*Centrear*/
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .card {
+    padding: 40px; /* Mayor espacio de relleno */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%; /* Ancho mayor */
+    background-color: #ffffff; /* Puedes cambiar el color de fondo si lo deseas */
+  }
+  
+  h2 {
+    margin-bottom: 20px; /* Mayor espacio entre el título y el texto */
+    font-size: 5em; /* Tamaño de fuente mayor */
+    color: #ff6347; /* Color rojo de ejemplo para el título */
+  }
+  p{
+    font-size: 2em;
+  }
+  
+  
+  /* Estilos para la imagen si la agregas */
+   .card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  } 

@@ -1,0 +1,12 @@
+<div class="wrapper" *ngIf="flag">
+    <div class="container">
+      <div class="title">
+        <h2>Plan de cuentas</h2>
+        <i class="fa-solid fa-xmark" (click)="closeModal()"></i>
+      </div>
+      <hr class="line">
+      <div class="account-plan">
+        <app-account-plan-view [accounts]="accountPlan"></app-account-plan-view>
+      </div>
+    </div>
+</div>

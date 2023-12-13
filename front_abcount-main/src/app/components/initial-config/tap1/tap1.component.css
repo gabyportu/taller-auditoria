@@ -1,0 +1,166 @@
+/*Background*/
+.tap1 {
+    background-color: #EEEEEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/*Información*/
+.container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 70%;
+}
+@media screen and (max-width: 1290px) {
+    .container {
+        width: 80%;
+    }
+}
+/*Subtitulos*/
+h2, h3 {
+    font-size: 16px;
+    color: #757575;
+    height: 16px;
+    margin: 0px;
+    font-weight: 500;
+}
+h2 {
+    margin-bottom: 10px;
+}
+h3 {
+    margin-bottom: 15px;
+}
+/*Título*/
+.header-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+/*Linea*/
+.line {
+    margin: 10px 0;
+    border: none;
+    border-bottom: 1px solid #EDEDED;
+}
+.separator {
+    margin: 15px 0;
+    border: none;
+    border-bottom: 1px solid #EDEDED;
+}
+/*Estilos de las filas*/
+.detail-company {
+    display: grid;
+    grid-template-columns: 60% 37%;
+    gap: 3%;
+}
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3%;
+    margin-top: 8px;
+}
+/*Estilos para la imagen*/
+.upload-container {
+    position: relative;
+}
+.drag-drop-area {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #757575;
+    border: #66CDAA 2px dashed;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;    
+    height: 154px;
+}
+
+.drag-drop-area span {
+    color: #66CDAA;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.preview-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 150px;
+    display: block;
+}
+
+.navigation {
+    margin-top: 15px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Links*/
+a {
+    font-size: 16px;
+    font-weight: 600;
+    color: #757575 !important;
+    text-decoration: none;
+    transition: all 0.4s !important;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    cursor: pointer !important;
+}
+a:focus {
+    outline: none !important;
+}
+a:hover {
+    text-decoration: none !important;
+    color: #7BC8CA !important;
+}
+
+/*Estilos para el botón eliminar*/
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FFDBDB; 
+    border: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+    color: #FF0000; 
+    cursor: pointer;
+    border-radius: 100%;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+.delete-button:focus {
+    outline: none;
+}
+.delete-button:hover {
+    background-color: #FF0000;
+    color: white; 
+}
+/*Mensaje de error*/
+.error-message {
+    color: #ff7e7e;
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+}
+.error-message.show {
+    display: block;
+    margin-top: 10px;
+}

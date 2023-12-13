@@ -1,0 +1,55 @@
+<div class="wrapper" *ngIf="flag">
+  <div class="container">
+    <div class="title">
+      <h2>Auxiliares de contabilidad</h2>
+      <i class="fa-solid fa-xmark" (click)="closeModal()"></i>
+    </div>
+    <hr style="margin-top: 0;">
+    <h4>Formulario</h4>
+    <div class="inputs-container">
+      <app-my-textfield type="text" iconInput="fa-solid fa-code" [label]="auxiliaryCode.labelAuxiliaryCode" [control]="controlAuxiliaryCode" [pattern]="patternAll" [errorMessage]="patternAllMessage" [placeholder]="auxiliaryCode.placeholderAuxiliaryCode" ></app-my-textfield>
+      <app-my-textfield type="text" iconInput="fa-solid fa-font" [label]="auxiliaryName.labelAuxiliaryName" [control]="controlAuxiliaryName" [pattern]="patternAll" [errorMessage]="patternAllMessage"  [placeholder]="auxiliaryName.placeholderAuxiliaryName"></app-my-textfield>
+    </div>
+    <div class="buttons-container">
+      <app-my-button [isGreen]="true" (click)="addOrUpdateAuxiliary()">
+        {{ selectedAuxiliary ? 'EDITAR' : 'AGREGAR' }}
+      </app-my-button>
+      <app-my-button [isRed]="true" *ngIf="selectedAuxiliary" (click)="cancelEdit()">CANCELAR</app-my-button>
+    </div>
+    <hr>
+    <h4>Lista de cuentas auxiliares</h4>
+    <div class="table-container">
+      <!-- Tabla -->
+      <mat-table [dataSource]="auxiliary">
+        <ng-container matColumnDef="nro">
+          <mat-header-cell *matHeaderCellDef>Nro</mat-header-cell>
+          <mat-cell *matCellDef="let auxiliary"> {{auxiliary.auxiliaryId}} </mat-cell>
+        </ng-container>
+        <!-- Código Column -->
+        <ng-container matColumnDef="codigo">
+          <mat-header-cell *matHeaderCellDef>Código</mat-header-cell>
+          <mat-cell *matCellDef="let auxiliary"> {{auxiliary.auxiliaryCode}} </mat-cell>
+        </ng-container>
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+          <mat-cell *matCellDef="let auxiliary"> {{auxiliary.auxiliaryName}} </mat-cell>
+        </ng-container>
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+          <mat-header-cell *matHeaderCellDef>Opciones</mat-header-cell>
+          <mat-cell class="cell-center" *matCellDef="let auxiliary">
+            <button class="edit" (click)="loadAuxiliaryForEdit(auxiliary)" mat-icon-button >
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="delete" mat-icon-button (click)="deleteAuxiliary(auxiliary)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+</div>

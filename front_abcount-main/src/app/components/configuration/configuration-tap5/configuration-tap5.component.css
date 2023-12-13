@@ -1,0 +1,131 @@
+/*Body*/
+.container-tap5 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/*Background*/
+.configuration-tap5 {
+    background-color: #F8F8F8;
+    padding: 5px 15% 4% 15%;
+    flex-grow: 1;
+}
+/*Titulo*/
+.row-2 {
+    display: flex;
+    justify-content: space-between;
+}
+/*Centrear*/
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Texto*/
+h1{
+    font-size: 22px;
+    font-weight: 600;
+    color: #787878;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #757575;
+    margin: 18px 0px 0px 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #757575;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+/*Iconos de los titulos*/
+.icono {
+    font-size: 50px;
+    color: #ffffff;
+    padding-right: 8px;
+}
+
+/*Cards --------------------------------------------------------------------------*/
+/*Seccion datos*/
+.datos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+/*Card*/
+.usuario{
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 25px 30px 30px 30px;
+}
+/*Imagen de usuario*/
+img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+/*Informacion de usuario*/
+.botones{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+/*Botones*/
+.button {
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: capitalize;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    color: #2CD447;
+    background-color: #D1FFD9;
+}
+.button:hover {
+    background-color: #66CDAA;
+    color: white;
+}
+.button:focus {
+    outline: none;
+}
+.button-red {
+    font-size: 12px;
+    font-weight: 600;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0px;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: capitalize;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+    color: #FF0000;
+    background-color: #FFDBDB;
+}
+.button-red:hover {
+    background-color: #ef5350 !important;
+    color: white !important;
+}
+.button-red:focus {
+     outline: none;
+}

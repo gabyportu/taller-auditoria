@@ -1,0 +1,71 @@
+.input-group input {
+  display: block;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  border: #D9D9D9 1px solid;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  padding: 3px 8px;
+  caret-color: #66CDAA;
+  transition: border 0.5s; /* Agregar transición a la propiedad border */
+}
+
+.input-group label i {
+  font-size: 12px;
+  font-weight: 400;
+  color: #66CDAA;
+  display: none;
+  transition: opacity 0.25s, transform 0.25s; /* Agregar transiciones a opacity y transform */
+}
+
+.input-group input:focus {
+  border: 1px solid #66CDAA;
+}
+
+.input-group input::placeholder {
+  transition: opacity 0.25s;
+}
+
+.input-group input:focus::placeholder {
+  opacity: 0;
+}
+
+.input-group label {
+  font-size: 12px;
+  height: 12px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #757575;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 8px;
+  margin-bottom: 5px;
+}
+
+.input-group:focus-within label i,
+.input-group input:valid ~ label i {
+  display: inline-flex;
+  opacity: 1;
+}
+.input-group:focus-within label,
+.input-group input:valid ~ label {
+  transform: translateX(8px);
+  transition: transform 0.1s;
+}
+
+.input-group input:invalid {
+  border: 1px solid #ef5350;
+}
+.input-group .invalid-label {
+  color: #ef5350;
+}
+.input-group .invalid-icon {
+  color: #ef5350 !important; 
+}
+.input-group .error-message {
+  color: #383838;
+  font-size: 12px;
+  margin-top: 5px;
+  line-height: 1.2;
+}

@@ -1,0 +1,133 @@
+/*Quitar los estilos generales*/
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Background*/
+.help-and-support {
+    background-color: #F8F8F8;
+    padding: 2% 5% 4% 5%;
+    display: flex;
+    flex-direction: column;
+}
+hr{
+    border: none;
+    border-top: 1px solid #E5E5E5;
+}
+.container-1{
+    margin: 8% 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2%;
+    flex-grow: 1;
+}
+a {
+    text-decoration: none;
+}
+.descripcion{
+    margin: 2% 0 0 0;
+}
+/*Ayuda y soporte*/
+.card {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 42px 35px 40px;
+}
+.header-card {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    position: relative;
+}
+.logo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+.logo i {
+    width: 90px;
+    height: 90px;
+    font-size: 50px;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 50%;
+}
+.form-logo {
+    cursor: pointer;
+    color: #000000;
+}
+.logo-white {
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 64px;
+    left: 64px;
+    color:#66cdab;
+    font-size: 18px;
+    padding-top: 4px;
+}
+/*Guia usuario*/
+.guia-usuario {
+    background-color: #fff3b1;
+}
+.guia-usuario .header-card .logo {
+    background-color: #FFD700;
+}
+/*Video*/
+.video {
+    background-color: #a0f8a3;
+}
+.video .header-card .logo {
+    background-color: #4CAF50;
+}
+/*Soporte*/
+.soporte{
+    background-color: #a0cdff;
+}
+.soporte .header-card .logo {
+    background-color: #007BFF;
+}
+
+/*Texto*/
+h1 {
+    font-size: 35px;
+    color: black;
+    margin: 0 0 15px 0;
+    font-family: 'Roboto', sans-serif;
+}
+h2 {
+    font-size: 25px;
+    font-weight: 550;
+    color: black;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h3{
+    font-size: 18px;
+    font-weight: 400;
+    color: #757575;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+h4 {
+    font-size: 15px;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+    line-height: 16px;
+}

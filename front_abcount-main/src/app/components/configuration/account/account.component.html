@@ -1,0 +1,14 @@
+<ul class="tree">
+    <ng-container *ngFor="let account of accounts">
+        <li>
+            <span class="toggle" (click)="toggle(account)">
+                <i style="color: #757575;" class="fa-solid" [ngClass]="{'fa-caret-up': !account.isHidden, 'fa-caret-down': account.isHidden}"></i>
+            </span>
+            <span class="account-details">{{ account.codeAccount }} {{ account.nameAccount }}</span>
+            <hr class="line">
+            <ul *ngIf="!account.isHidden">
+                <app-account [accounts]="account.childrenAccounts"></app-account>
+            </ul>
+        </li>
+    </ng-container>
+</ul>

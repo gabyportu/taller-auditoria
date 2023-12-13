@@ -1,0 +1,11 @@
+<div style="position: relative;">
+    <div class="combo-box-input" (click)="toggleOptions()">
+        <h2>{{selectedOption.name}}</h2>
+        <i class="fa-solid" [ngClass]="{'fa-caret-up': isOpen, 'fa-caret-down': !isOpen}"></i>
+    </div>
+    <div class="combo-box-options" *ngIf="isOpen">
+        <a class="combo-box-option" *ngFor="let option of options" (click)="selectOption(option)">
+            {{option.name}}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,224 @@
+/*Quitar los estilos generales*/
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Background*/
+.my-profile {
+    background-color: #F8F8F8;
+    padding: 2% 5% 4% 5%;
+}
+h1 {
+    font-size: 35px;
+    color: black;
+    margin: 0px;
+    font-family: 'Anek Telugu', sans-serif;
+}
+hr {
+    border: none;
+    border-top: 1px solid #E5E5E5;
+}
+.row-2 {
+    margin: 2.5% 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+/*--------------------------------------------------------------*/
+/*Estilos para la imagen*/
+.upload-container {
+    position: relative;
+}
+.drag-drop-area {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #757575;
+    border: #66CDAA 2px dashed;
+    border-radius: 100%;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;    
+    height: 250px;
+    width: 250px;
+}
+.drag-drop-area span {
+    color: #66CDAA;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.preview-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    display: block;
+}
+/*Estilos para el botón eliminar*/
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FFDBDB; 
+    border: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+    color: #FF0000; 
+    cursor: pointer;
+    border-radius: 100%;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+.delete-button:focus {
+    outline: none;
+}
+.delete-button:hover {
+    background-color: #FF0000;
+    color: white; 
+}
+/*--------------------------------------------------------------*/
+/*Detalles del formulario*/
+.info {
+    display: flex;
+    align-items: center;
+}
+h2, h3 {
+    color: #757575;
+    height: 16px;
+    margin: 0px;
+    font-weight: 500;
+}
+h2 {
+    font-size: 20px;
+    margin: 10px 0 15px 0;
+}
+h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+p {
+    font-size: 18px;
+    color: #383838;
+    margin-bottom: 10px;
+    font-weight: 400;
+    padding: 5px 10px;
+    border-radius: 5px;
+    min-height: 31.25px;
+}
+input {
+    font-size: 18px;
+    color: #383838;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #E5E5E5;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    outline: none;
+}
+/*--------------------------------------------------------------*/
+/*Segunda sección*/
+.margin {
+    margin: 0 20%;
+}
+.info-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+/*Radio button*/
+.radio-button input[type='radio'] {
+    display: none; 
+}
+.radio-button label {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #66CDAA;
+    color: #66CDAA;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.radio-button input[type='radio']:checked + label {
+    background-color: #66CDAA;
+    color: white;
+}
+.cuadro {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #66CDAA;
+    color: #66CDAA;
+    border-radius: 5px;
+}
+.cuadro-seleccionado {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #66CDAA;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #66CDAA;
+}
+
+/*Buton para editar*/
+.right {
+    width: 100%;
+    display: flex; 
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.edit-button {
+    background-color: #eeeeee;
+    border: solid 1px #bebebe;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit-button:hover {
+    background-color: #aaaaaa;
+}
+.edit-button:hover i {
+    color: #ffffff;
+}
+.edit-button:focus {
+    outline: none;
+}
+.edit-button i {
+    font-size: 15px;
+    color: #757575;
+}

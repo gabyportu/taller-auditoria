@@ -1,0 +1,54 @@
+<div class="tap3">
+  <div class="container">
+    <h1 class="header-title">Configuración de la Empresa</h1>
+    <hr>
+    <app-progress [steps]="[1, 2, 3, 4]" [currentStep]="3"></app-progress>
+    <div>
+      <h2>INICIO DE USO</h2>
+      <div class="row-2">
+        <h3>Fecha de registro de la empresa</h3>
+        <h3 style="color: #B2B2B2;">{{ fechaActual | date: 'dd/MM/yyyy' }}</h3>
+      </div>
+    </div>
+    <hr>
+    <div style="margin-bottom: 0px;" class = "row-2">
+      <h3>MONEDA PRINCIPAL</h3>
+      <h3 style="color: #B2B2B2;">Bolivianos</h3>
+    </div>
+    <hr>
+    <div class="row-2">
+      <h3>Otras monedas que quiera manejar</h3>
+      <div class="right">
+        <div class="input-icon-container">
+          <i class="fa fa-search input-icon"></i>
+          <input type="text" id="searchMoneda" [formControl]="moneyName" class="input-group" placeholder="Ingresa el nombre de la moneda a agregar">
+          <div class="sugerencias-container" *ngIf="monedasSugeridas.length > 0">
+            <div *ngFor="let moneda of monedasSugeridas" (click)="seleccionarMoneda(moneda)" class="sugerencia-item">
+              {{ moneda.moneyName }} ({{ moneda.moneyIso }})
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="currencies-list">
+      <div *ngFor="let moneda of monedasSeleccionadas" [style.background-color]="color" class="moneda-item">
+        {{ moneda.moneyName }} <button (click)="removerMoneda(moneda.exchangeId)" class="remove-button">
+        <i class="fa-solid fa-x"></i>
+      </button>
+      </div>
+    </div>
+    <div class="navigation">
+      <div>
+        <a routerLink="/initial-config/tap2">&lt;&lt; Atras</a>
+      </div>
+      <div>
+        <a routerLink="/initial-config/tap4">Siguiente &gt;&gt;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--<button (click)="printValue()">Imprimir valor</button>
+<button (click)="guardarJSON()">a</button>-->

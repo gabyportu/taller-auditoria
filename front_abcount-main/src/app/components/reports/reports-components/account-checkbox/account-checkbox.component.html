@@ -1,0 +1,20 @@
+<ul class="tree">
+    <ng-container *ngFor="let account of accounts">
+        <li>
+            <div class="line">
+                <span class="toggle" (click)="toggle(account)">
+                    <i style="color: #757575;" class="fa-solid" [ngClass]="{'fa-caret-up': !account.isHidden, 'fa-caret-down': account.isHidden}"></i>
+                </span>
+                <span class="account-details">{{ account.codeAccount }} {{ account.nameAccount }}</span>
+                <div class="checkbox">
+                    <input type="checkbox" [id]="account.codeAccount" class="custom-checkbox" [(ngModel)]="account.isChecked" (change)="updateChildAccounts(account, account.isChecked)"/>
+                    <label [for]="account.codeAccount" class="custom-label"></label>
+                </div>
+            </div>
+            <hr>
+            <ul *ngIf="!account.isHidden">
+                <app-account-checkbox [accounts]="account.childrenAccounts"></app-account-checkbox>
+            </ul>
+        </li>
+    </ng-container>
+</ul>

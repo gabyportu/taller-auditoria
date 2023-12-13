@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<div class="closing-sheet">
+    <app-navbar></app-navbar>
+    <div class="closing-sheet-background">    
+        <div class="logo">
+            <i class="fas fa-spinner fa-spin"></i>
+            <h1>Proceso de Cierre Contable</h1>
+        </div>
+        <p>Bienvenido al proceso de cierre contable. Esta operación implica finalizar y consolidar todas las transacciones financieras del período actual. Asegúrate de tener toda la información necesaria antes de comenzar. Una vez completado, se generarán los informes financieros finales.</p>
+        <div class="button-start">
+            <button class="accept-button" (click)="openFirstPopup()">Iniciar Cierre Contable</button>
+        </div>
+    </div>
+</div>
+<!-- Modal confirmar el cierre contable -->
+<div class="overlay" *ngIf="backgroundPopup"></div>
+<div class="popup" *ngIf="firstPopup">
+    <div class="popup-title">
+        <i class="fa-light fa-paper-plane"></i>
+        <h3>Confirmar Inicio de Cierre Contable</h3>
+    </div>
+    <h4>¿Estás seguro de que deseas comenzar el proceso de cierre contable? Esto consolidará todas las transacciones y finalizará el período actual. Asegúrate de haber revisado y respaldado toda la información relevante.</h4>
+    <div class="popup-buttons">
+        <button class="accept-button" (click)="openSecondPopup()">Iniciar Cierre</button>
+        <button class="cancel-button" (click)="cancel()">Cancelar</button>
+    </div>
+</div>
+<div class="popup" *ngIf="secondPopup">
+    <div class="popup-title">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>Confirmación de Inicio del Proceso</h3>
+    </div>
+    <h4>Hemos iniciado el proceso de cierre contable. Este paso puede tardar un poco, y queríamos informarte que, una vez completado, no se podrá deshacer. ¿Estás seguro de proceder?</h4>
+    <div class="popup-buttons">
+        <button class="accept-button" (click)="closingSheetProcess()">Confirmar</button>
+        <button class="cancel-button" (click)="cancel()">Cancelar</button>
+    </div>
+</div>
+<div class="popup" *ngIf="loading">
+    <div class="loading">
+        <h3>Procesando Cierre Contable</h3>
+        <h4>Por favor, espera mientras se completa el proceso de cierre contable. Esto puede llevar algún tiempo dependiendo del tamaño de los datos. ¡Gracias por tu paciencia!</h4>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+</div>
+<div class="popup" *ngIf="final">
+    <div class="popup-title" style="flex-direction: column; align-items: center;">
+        <i class="{{messageIcon}}" style="font-size: 70px;"></i>
+        <h3 style="margin: 0;">{{titleMessage}}</h3>
+        <h4>{{message}}</h4>
+    </div>
+    <div class="popup-buttons" style="justify-content: center;">
+        <button class="accept-button" (click)="end()">Aceptar</button>
+    </div>
+</div>

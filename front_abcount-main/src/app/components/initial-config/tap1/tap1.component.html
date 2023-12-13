@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<div class="tap1">
+    <div class="container">
+        <h1 class="header-title">Configuración de la Empresa</h1>
+        <hr class="line">
+        <app-progress [steps]="[1, 2, 3, 4]" [currentStep]="1"></app-progress>
+        <div style="height: 10px;"></div>
+        <div class="detail-company">
+            <div>
+                <h2>DETALLES DE LA EMPRESA</h2>
+                <div>
+                    <app-my-textfield type="text" [iconInput]="name.iconInputName" [label]="name.labelName" [control]="nombreControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="name.placeholderName"></app-my-textfield>
+                </div>
+                <div class="row-2">
+                    <app-my-textfield type="text" [iconInput]="rubro.iconInputRubro" [label]="rubro.labelRubro" [control]="rubroControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="rubro.placeholderRubro" ></app-my-textfield>
+                    <app-my-textfield type="text" [iconInput]="nit.iconInputNIT" [label]="nit.labelNIT" [control]="nitControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="nit.placeholderNIT" ></app-my-textfield>
+                </div>
+                <div class="row-2">
+                    <app-my-textfield type="text" [iconInput]="legalRepresentative.iconInputLegalRepresentative" [label]="legalRepresentative.labelLegalRepresentative" [control]="nameRepresentativeControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="legalRepresentative.placeholderLegalRepresentative" ></app-my-textfield>
+                    <app-my-textfield type="text" [iconInput]="ciRepresentative.iconInputCIRepresentative" [label]="ciRepresentative.labelCIRepresentative" [control]="ciRepresentativeControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="ciRepresentative.placeholderCIRepresentative" ></app-my-textfield>
+                </div>
+            </div>
+            <div>
+                <h3>LOGO</h3>
+                <div class="upload-container">
+                    <div *ngIf="!imageURL" (dragover)="onDragOver($event)" (drop)="onDrop($event)" (dragleave)="onDragLeave($event)" [class.dragging]="isDragging">
+                        <input type="file" (change)="onFileChanged($event)" accept="image/*" #fileInput style="display: none">
+                        <div class="drag-drop-area" (click)="fileInput.click()">
+                            <div>Arrastra y suelta una imagen aquí o <span>selecciona un archivo</span></div>
+                        </div>
+                    </div>
+                    <div *ngIf="imageURL" class="image-container">
+                        <button class="delete-button" (click)="removeImage()">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <img [src]="imageURL" alt="Vista previa del logo" class="preview-image">
+                    </div>
+                </div>
+                <div class="error-message" #errorMessageLogo>Por favor, seleccione su logo.</div>
+            </div>
+        </div>
+        <hr class="separator">
+        <div>
+            <div>
+                <h2>INFORMACIÓN DE CONTACTO</h2>
+            </div>
+            <div>
+                <app-my-textfield type="text" [iconInput]="address.iconInputAddress" [label]="address.labelAddress" [control]="direccionControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="address.placeholderAddress" ></app-my-textfield>
+            </div>
+            <div class="row-2">
+                <div>
+                    <app-my-textfield type="email" [iconInput]="email.iconInputEmail" [label]="email.labelEmail" [control]="emailControl" [placeholder]="email.placeholderEmail" [pattern]="pattern.patternEmail" [errorMessage]="pattern.patternEmailMessage"></app-my-textfield>
+                </div>
+                <div>
+                    <app-my-textfield type="text" [iconInput]="numberRepresentative.iconInputNumberRepresentative" [label]="numberRepresentative.labelNumberRepresentative" [control]="numberRepresentativeControl" [pattern]="pattern.patternNumber" [errorMessage]="pattern.patternNumberMessage" [placeholder]="numberRepresentative.placeholderNumberRepresentative" ></app-my-textfield>
+                </div>
+            </div>
+        </div>
+        <hr class="separator">
+        <div>
+            <div>
+                <h2>DOCUMENTACIÓN Y REGISTROS</h2>
+            </div>
+            <div class="row-2">
+                <div>
+                    <app-my-textfield type="text" [iconInput]="numberRegistration.iconInputNumberRegistration" [label]="numberRegistration.labelNumberRegistration" [control]="numberRegistrationControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="numberRegistration.placeholderNumberRegistration" ></app-my-textfield>
+                </div>
+                <div>
+                    <app-my-textfield type="text" [iconInput]="numberEmployee.iconInputNumberEmployee" [label]="numberEmployee.labelNumberEmployee" [control]="numberEmployeeControl" [pattern]="pattern.patternAll" [errorMessage]="pattern.patternAllMessage" [placeholder]="numberEmployee.placeholderNumberEmployee" ></app-my-textfield>
+                </div>
+            </div>
+        </div>
+        <div class="error-message" #errorMessage>Por favor, complete todos los campos de forma correctamente.</div>
+        <div class="navigation">
+            <div><a routerLink="/my-companies">&lt;&lt; Atras</a></div>
+            <div><a (click)="verificarCampos()">Siguiente &gt;&gt;</a></div>
+        </div>
+    </div>
+</div>

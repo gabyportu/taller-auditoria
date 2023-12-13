@@ -1,0 +1,107 @@
+/*Background*/
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  z-index: 100; /* Coloca la capa por encima de todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*Popup*/
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 15px 25px;
+  z-index: 101;
+  box-shadow: 0 5 15px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 70%;
+  max-width: 1000px;
+}
+/*Titulo*/
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+.title h2 {
+  color: black;
+  font-weight: 600;
+  font-size: 25px;
+}
+.title i {
+  font-size: 20px;
+  color: #bbbbbb;
+}
+.title i:hover {
+  cursor: pointer;
+  color: #757575;
+}
+hr {
+  border: none;
+  border-bottom: 1px solid #EDEDED;
+  margin: 0 0 10px 0;
+}
+
+.table-container {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.cell-center {
+  display: flex;
+  justify-content: center;
+}
+.edit{
+  background-color: #D7B8FD;
+  color: white;
+}
+.edit:hover{
+  background-color: #C9A8F5;
+  cursor: pointer;
+}
+mat-cell button[mat-icon-button] {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+}
+.cell-title-center {
+  display: flex;
+  justify-content: center;
+}
+.buttons-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+.new {
+  display: flex;
+  gap: 6px;
+  border-radius: 5px;
+  color: white;
+  background-color: #66CDAA;
+  border: none;
+  cursor: pointer;
+  padding: 6px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.new:hover {
+  background-color: #20B2AA;
+}

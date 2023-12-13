@@ -1,0 +1,76 @@
+<div class="container-add-user">
+    <div class="container-add">
+        <div class="header">
+            <div class="imagen">
+                <i class="fa-solid fa-user-plus" style="color: #B4A5DE;"></i>
+            </div>
+            <h1 class="header-title">Invitar usuario - empleado</h1>
+            <div style="display: flex;">
+                <app-profile-card *ngIf="this.userSelected"  [user]="this.userSelected"  ></app-profile-card> 
+            </div>
+        </div>
+        <div class="buscar-usuario">
+            <h2>Buscar usuario</h2>
+ 
+            <div>
+                <input type="text" 
+                style="width: 400px;" 
+                id="NombreUsuario"
+                [(ngModel)] = "nameSearchInput" 
+                class="" 
+                placeholder="Ingresa el nombre del usuario"
+                 (ngModelChange)="changingInputUser()" 
+                 autocomplete="off" 
+                 (focus)="focusFunction()" 
+                 (focusout)="focusOutFunction()">
+
+                <div class="custom-search-result" *ngIf="shouldShow"  (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" [class.focused]="isFocused">
+
+                     
+                      
+                            <app-profile-card  *ngFor="let usr of usersSearched; let currentUsr = index;" (click)="itemClicked(currentUsr)"  [user]="usr" (click)="itemClicked(currentUsr)"></app-profile-card> 
+                       
+                      
+    
+                </div>
+            </div>
+            
+
+            
+ 
+        </div>
+
+        
+
+        <div class="wrapper">
+            <div class="card user">
+                <h2>Lista sucursales y areas</h2>
+                <br>
+ 
+                <div class="surcusal" *ngFor="let subsidiary of subsidiaries; let currentSub = index;">
+                    <input class="check-role" type="checkbox" [id]="'subsidiary_' + subsidiary.subsidiaryId" [(ngModel)]="subsidiary.status" (change)="onSubsidiaryChange(currentSub)">
+                    <label [for]="'subsidiary_' + subsidiary.subsidiaryId">{{subsidiary.subsidiaryName}}</label>
+                    <hr>
+                    <div class="area" *ngFor="let area of subsidiary.areas; let currentArea = index;">
+                        <input class="check-role" type="checkbox" [id]="'area_' + area.areaId" [(ngModel)]="area.status" (change)="onAreaChange(currentSub, currentArea)">
+                        <label [for]="'area_' + area.areaId">{{area.areaName}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card role">
+                <h2>Permisos</h2>
+                <br>
+ 
+                <div class="alinear" *ngFor="let rol of rolesEntity">
+                    <input class="check-role" type="checkbox" [id]="'checkbox' + rol.roleId" [(ngModel)]="rol.status">
+                    <label [for]="'checkbox' + rol.roleId">{{rol.roleDescription}}</label>
+ 
+                </div>
+            </div>
+        </div>
+        <div class="invitar">
+            <app-my-button  [isGreen]="true"  style="margin-right: 10px;" (click)="addedUser()">ENVIAR INVITACION</app-my-button>
+            <app-my-button [isRed]="true" (click)="cancel()">CANCELAR</app-my-button>
+        </div>
+    </div>
+</div>

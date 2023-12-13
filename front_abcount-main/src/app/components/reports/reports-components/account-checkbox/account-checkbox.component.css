@@ -1,0 +1,123 @@
+/*Plan de cuentas*/
+.tree {
+    list-style: none;
+    padding-left: 0;
+}
+.tree ul {
+    margin: 0;
+    padding: 0;
+}
+.tree li {
+    margin-left: 23px; /* Espacio a la izquierda entre niveles */
+    position: relative;
+}
+.toggle {
+    cursor: pointer;
+    user-select: none;
+    margin-left: 5px;
+}
+.account-details {
+    margin-left: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #757575;
+}
+hr {
+    margin: 8px 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin-right: 23px;
+}
+.line {
+    display: flex;
+    flex-direction: row;
+    margin-right: 23px;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+/*Checkbox*/
+.checkbox-label {
+    margin-bottom: 5px;
+}
+.custom-checkbox {
+    position: absolute;
+    opacity: 0;
+}
+.custom-checkbox + label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: #757575;
+}
+.custom-checkbox + label:before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid;
+    border-color: #c4c2c2;
+    background-color: #fff;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.custom-checkbox:checked + label:before {
+    background-color: #c4c2c2;
+}
+.custom-checkbox:checked + label:before {
+    content: "\2713"; /* Código de caracter Unicode del icono de check */
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 16px;
+}
+
+.popup {
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Centra exactamente en el medio */
+  width: 45%; /* Tamaño del popup */
+  background-color: #fff;
+  padding: 25px 35px;
+  z-index: 101; /* Coloca el popup por encima de la capa de fondo */
+  box-shadow: 0 5 15px rgba(0, 0, 0, 0.25); /* Sombra */
+  border-radius: 10px;
+}
+
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.322); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque */
+  z-index: 100; /* Coloca la capa por encima de todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+

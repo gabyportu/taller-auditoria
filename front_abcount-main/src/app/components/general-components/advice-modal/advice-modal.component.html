@@ -1,0 +1,27 @@
+
+<h1 mat-dialog-title style="text-align: center; ">
+
+        {{data.title}}
+
+</h1>
+<div mat-dialog-content style="z-index: 100;">
+    <div style="padding: 10px; z-index: 90; text-align: center;">
+        
+        <i style="font-size: 80px; z-index: 110; color: red; margin-bottom: 10px;" class="{{data.iconFaString}}"></i>
+    </div>
+
+    <p class="text-center">
+        {{data.message}} 
+         
+    </p>
+    <p class="text-center" style="font-weight: bold; letter-spacing:  normal;">
+        {{data.specified}}
+    </p>
+</div>
+<div class="text-center" style="text-align: right ; margin-bottom: 5px; padding-right: 5px;">
+    <app-my-button  [isGreen]="true"   (click)="onConfirm()">{{data.okText}}</app-my-button>
+    <app-my-button  *ngIf="data.canCancel"  [isRed]="true" style="margin-left: 10px;" (click)="onCancel()">{{data.cancelText}}</app-my-button>
+    
+    
+   
+</div>

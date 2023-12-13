@@ -1,0 +1,97 @@
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" integrity="tu-clave-de-api" crossorigin="anonymous">
+<app-navbar></app-navbar>
+<div class="home">
+    <div class="first-row">
+        <div class="info">
+            <h2>ABCOUNT</h2>
+            <h1>Descubre el Poder de la Contabilidad</h1>
+            <h3>Simplifica tu contabilidad y toma el control de tus finanzas con ABCOUNT. Descubre una forma más eficiente de gestionar tus registros contables y obtener informes financieros precisos en cuestión de segundos.</h3>
+            <a routerLink="/accounting-voucher/view">
+                EMPEZAR AHORA
+                <i class="fa-solid fa-caret-right"></i>
+            </a>
+        </div>
+        <div class="image">
+            <img class="person" src="../../../assets/home/person.png">
+            <img class="background" src="../../../assets/home/background.svg">
+        </div>
+    </div>
+    <div class="second-row">
+        <h4>FUNCIONES DESTACADAS</h4>
+        <div class="functions">
+            <div class="function">
+                <img src="../../../assets/home/icons/building.svg">
+                <h3>Crea y gestiona tus empresas de manera eficiente</h3>
+            </div>
+            <div class="function">
+                <img src="../../../assets/home/icons/settings.svg">
+                <h3>Ajusta la configuración según tus necesidades</h3>
+            </div>
+            <div class="function">
+                <img src="../../../assets/home/icons/add.svg">
+                <h3>Registra y visualiza tus comprobantes contables</h3>
+            </div>
+        </div>
+        <div style="height: 25px;"></div>
+        <div class="functions">
+            <div class="function">
+                <img src="../../../assets/home/icons/users.svg">
+                <h3>Administra cuentas auxiliares y entidades</h3>
+            </div>
+            <div class="function">
+                <img src="../../../assets/home/icons/report.svg">
+                <h3>Obtén informes financieros en segundos</h3>
+            </div>
+            <div class="function">
+                <img src="../../../assets/home/icons/add-user.svg">
+                <h3>Invita a otros a trabajar juntos en tu contabilidad</h3>
+            </div>
+        </div>
+    </div>
+    <div class="third-row">
+        <div>
+            <div class="row-2">
+                <div class="card pink">
+                    <i class="fa-solid fa-seedling"></i>
+                    <h5 class="title">Eficiencia y Productividad</h5>
+                    <h5>Nuestro objetivo es simplificar y automatizar tus tareas contables para aumentar la eficiencia</h5>
+                </div>
+                <div class="card orange">
+                    <i class="fa-regular fa-database"></i>
+                    <h5 class="title">Acceso Fácil a la Información</h5>
+                    <h5>Facilitamos el acceso a datos financieros para una toma de decisiones informada</h5>
+                </div>
+            </div>
+            <div class="row-1">
+                <div></div>
+                <div class="card purple">
+                    <i class="fa-solid fa-users"></i>
+                    <h5 class="title">Colaboración sin Fronteras</h5>
+                    <h5>Fomentamos la colaboración y el trabajo en equipo en tiempo real</h5>
+                </div>
+            </div>
+        </div>
+        <div class="goals">
+            <div class="goals-text">
+                <h4 class="right">OBJETIVOS</h4>
+                <h3 class="right">Nos dedicamos a hacer que la contabilidad sea más fácil para ti. Nuestro objetivo es simplificar tus tareas contables, brindarte acceso rápido a tus datos financieros y permitirte trabajar en equipo de manera sencilla.</h3>
+            </div>
+        </div>
+    </div>
+    <div class="fourth-row">
+        <div class="goals">
+            <div class="goals-text">
+                <h4 class="right">MISION</h4>
+                <h3 class="right">Nuestra misión es empoderar a las empresas con soluciones contables accesibles y eficaces.</h3>
+            </div>
+        </div>
+        <img src="../../../assets/home/meeting.svg">
+        <div class="goals">
+            <div class="goals-text">
+                <h4 class="left">VISION</h4>
+                <h3 class="left">Buscamos convertirnos en el estándar global para la gestión financiera, brindando a las empresas las herramientas para prosperar.</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<app-currency-exchange-add [date]="getCurrentDate()" [flag]="flagAdd" (flagChange)="flagAddChange()"></app-currency-exchange-add>

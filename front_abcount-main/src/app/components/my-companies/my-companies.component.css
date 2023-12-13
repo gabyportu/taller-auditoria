@@ -1,0 +1,228 @@
+/*Header*/
+.close-session {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.close-session:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.close-session i {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  margin-right: 8px;
+}
+.notification {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 700px;
+}
+.notification-icon {
+  position: relative;
+  width: 100%;
+  text-align: right;
+  padding: 8px;
+}
+.notification-icon i {
+  color: #fff;
+  font-size: 40px;
+  padding: 9px 13px 11px 13px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.notification-icon i:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.notification-number {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: fit-content;
+  padding: 5px 10px 3px 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+.cero {
+  background-color: #bbbbbb;
+}
+.more {
+  background-color: #F02F4F;
+}
+/*Centrear*/
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Background*/
+.background {
+    background: url(../../../assets/background.jpg) no-repeat center center fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+/*Links*/
+a {
+    font-size: 18px;
+    font-weight: 400;
+    color: white !important;
+    text-decoration: none !important;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    text-align: center;
+    cursor: pointer;
+}
+a:focus {
+    outline: none !important;
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(230, 230, 230) !important;
+}
+a:hover .company-logo {
+    background-color: rgb(230, 230, 230);
+}
+/*Lista de compañias*/
+.my-companies {
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    grid-gap: 25px;
+}
+/*Logo de la compañia*/
+.company-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: white;
+    margin-bottom: 10px;
+}
+.company-logo img {
+    width: 92%;
+    height: 92%;
+    border-radius: 100%;
+}
+.center-text {
+    text-align: center;
+}
+/*---------------------------------------------------------*/
+/*Estilos del popup*/
+/* Estilo para el fondo oscuro */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+/* Estilo para centrar el cuadro de diálogo */
+.custom-confirm-dialog {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  padding: 1% 2%;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+}
+h5 {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 5px;
+}
+.popup-header i {
+  padding: 2px 0 0 0;
+  font-size: 20px;
+  color: #bbbbbb;
+}
+.popup-header i:hover {
+  cursor: pointer;
+  color: #757575;
+  background-color: #fff;
+}
+hr {
+  margin: 10px 0;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.data-scroll {
+  height: 75vh;
+  overflow-y: auto;
+}
+.datos {
+  display: grid;
+  grid-template-columns: 100px calc(100% - 100px);
+  padding: 10px;
+  text-align: left;
+}
+p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #757575;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 5px;
+}
+/* Estilo para botones */
+.dialog-actions {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/*Estilos botones popup*/
+.aceptar{
+  border-radius: 5px;
+  color: white;
+  background-color: #66CDAA;
+  border: none;
+  cursor: pointer;
+  padding: 5px 20px;
+}
+.aceptar:hover {
+  background-color: #20B2AA;
+}
+.cancelar{
+  border-radius: 5px;
+  color: white;
+  background-color: #CDCDCD;
+  border: none;
+  cursor: pointer;
+  padding: 5px 20px;
+  margin-left: 10px;
+}
+.cancelar:hover {
+  background-color: #BEBEBE;
+}
+ 
+.loading-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 10px;
+}
